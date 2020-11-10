@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Utils.MVVM;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace DXApplication4.Modulos.Estudiantes
 {
     public partial class NuevoEstudiante : Form
     {
+        DataTable dtTutores = new DataTable();
+        
         public NuevoEstudiante()
         {
             InitializeComponent();
@@ -21,6 +24,11 @@ namespace DXApplication4.Modulos.Estudiantes
             txtMonedaCor.Enabled = false;
             txtCorreo.Enabled = false;
             txtCarnet.Enabled = false;
+            checkCedula.Checked = true;
+            dtTutores.Columns.Add("Nombre");
+            dtTutores.Columns.Add("Parentesco");
+            dtTutores.Columns.Add("Telefono");
+            dtTutores.Columns.Add("Correo");
         }
 
         private void habilitarTraslado(bool estado=false) {
@@ -139,6 +147,12 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void dateFechaNacimiento_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtPrimerNombre.Text.Trim()==string.Empty||txtPrimerApellido.Text.Trim()==string.Empty)
+            {
+                MessageBox.Show("Debe rellenar el primer nombre o primer apellido del estudiante para continuar");
+                txtPrimerNombre.Focus();
+                return;
+            }
             DateTime fecha = Convert.ToDateTime(dateFechaNacimiento.EditValue);
             string mes = "";
             string year = "";
@@ -174,22 +188,55 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void txtMontoPor_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtMontoPor.Text.Trim()==string.Empty)
+            {
+                txtMontoPor.Text = "0";
+                return;
+            }
             double mensualidad = Convert.ToDouble(txtMensualidad.Text);
-            double porcentaje = Convert.ToDouble(txtMontoPor.Text);
-            double descuento = mensualidad * (porcentaje / 100);
+            double porcentaje = Convert.ToDouble(txtMontoPor.Text)/100;
+            double descuento = mensualidad * porcentaje;
             double valor = mensualidad - descuento;
-            txtMensualidad.Text = valor.ToString();
+            txtMensualidadTotal.Text = valor.ToString();
             txtMonedaCor.Text = descuento.ToString();
         }
 
         private void txtMonedaCor_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtMonedaCor.Text.Trim() == string.Empty)
+            {
+                txtMonedaCor.Text = "0";
+                return;
+            }
             double mensualidad = Convert.ToDouble(txtMensualidad.Text);
             double descuento = Convert.ToDouble(txtMonedaCor.Text);
             double porcentaje = descuento/mensualidad;
             double valor = mensualidad - descuento;
-            txtMensualidad.Text = valor.ToString();
-            txtMontoPor.Text = porcentaje.ToString();
+            txtMensualidadTotal.Text = valor.ToString();
+            txtMontoPor.Text = (porcentaje*100).ToString();
+        }
+
+        private void txtTrasladoPrograma_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnTutorGuardar_Click(object sender, EventArgs e)
+        {
+            DataRow row=dtTutores.NewRow();
+            row["Nombre"] = txtTutorNombre.Text;
+            row["Parentesco"] = comboTutorParentesco.EditValue;
+            row["Telefono"] = txtTutorTelefono.Text;
+            row["Correo"] = txtTutorCorreo.Text;
+            dtTutores.Rows.Add(row);
+
+            gridTutores.DataSource = null;
+            gridTutores.DataSource = dtTutores;
+
+            txtTutorNombre.Text = "";
+            comboTutorParentesco.Text="";
+            txtTutorTelefono.Text = "";
+            txtTutorCorreo.Text = "";
         }
     }
 }

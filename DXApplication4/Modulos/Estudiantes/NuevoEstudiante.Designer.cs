@@ -33,19 +33,31 @@
             this.navigationBarItem1 = new DevExpress.XtraBars.Navigation.NavigationBarItem();
             this.navigationBarItem2 = new DevExpress.XtraBars.Navigation.NavigationBarItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtCodMINED = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
             this.txtMunicipio = new DevExpress.XtraEditors.TextEdit();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.comboBoxEdit7 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtTutorCorreo = new DevExpress.XtraEditors.TextEdit();
+            this.txtTutorTelefono = new DevExpress.XtraEditors.TextEdit();
+            this.btnTutorGuardar = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
+            this.gridTutores = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTutores = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.comboTutorParentesco = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
+            this.txtTutorNombre = new DevExpress.XtraEditors.TextEdit();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.txtGrado = new DevExpress.XtraEditors.TextEdit();
+            this.txtMensualidadTotal = new DevExpress.XtraEditors.TextEdit();
+            this.txtMatricula = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
             this.txtMonedaCor = new DevExpress.XtraEditors.TextEdit();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
@@ -58,17 +70,15 @@
             this.txtMensualidad = new DevExpress.XtraEditors.TextEdit();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.txtTurno = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtModalidad = new DevExpress.XtraEditors.TextEdit();
-            this.txtPrograma = new DevExpress.XtraEditors.TextEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPrograma = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtModalidad = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtGrado = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelTraslado = new DevExpress.XtraEditors.PanelControl();
-            this.txtTrasladoGrado = new DevExpress.XtraEditors.TextEdit();
             this.comboTrasladoPeriodo = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtTrasladoModalidad = new DevExpress.XtraEditors.TextEdit();
-            this.txtTrasladoPrograma = new DevExpress.XtraEditors.TextEdit();
             this.txtTrasladoCodCentro = new DevExpress.XtraEditors.TextEdit();
             this.txtTrasladoCodEstabl = new DevExpress.XtraEditors.TextEdit();
             this.txtTrasladoNombre = new DevExpress.XtraEditors.TextEdit();
@@ -79,6 +89,10 @@
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.txtTrasladoPrograma = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtTrasladoModalidad = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtTrasladoGrado = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.checkTraslado = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.txtPadecimientos = new System.Windows.Forms.RichTextBox();
@@ -118,40 +132,42 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtCodMINED = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMatricula = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodMINED.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMunicipio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorCorreo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorTelefono.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMensualidadTotal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatricula.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonedaCor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboTpBeca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBeca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoPor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMensualidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurno.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModalidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrograma.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModalidad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGrado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelTraslado)).BeginInit();
             this.panelTraslado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboTrasladoPeriodo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodCentro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodEstabl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTraslado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartidaNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartida.Properties)).BeginInit();
@@ -171,8 +187,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodMINED.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatricula.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // officeNavigationBar1
@@ -256,12 +270,31 @@
             this.panelControl1.TabIndex = 1;
             this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
+            // txtCodMINED
+            // 
+            this.txtCodMINED.Location = new System.Drawing.Point(98, 27);
+            this.txtCodMINED.Name = "txtCodMINED";
+            this.txtCodMINED.Properties.Mask.EditMask = "\\p{Lu}\\p{Lu}\\p{Lu}\\p{Lu}-\\d\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtCodMINED.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtCodMINED.Size = new System.Drawing.Size(313, 22);
+            this.txtCodMINED.TabIndex = 1;
+            // 
+            // labelControl39
+            // 
+            this.labelControl39.Location = new System.Drawing.Point(24, 30);
+            this.labelControl39.Name = "labelControl39";
+            this.labelControl39.Size = new System.Drawing.Size(67, 16);
+            this.labelControl39.TabIndex = 51;
+            this.labelControl39.Text = "Cod. MINED";
+            // 
             // txtMunicipio
             // 
-            this.txtMunicipio.Location = new System.Drawing.Point(285, 226);
+            this.txtMunicipio.Location = new System.Drawing.Point(285, 195);
             this.txtMunicipio.Name = "txtMunicipio";
+            this.txtMunicipio.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtMunicipio.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtMunicipio.Size = new System.Drawing.Size(126, 22);
-            this.txtMunicipio.TabIndex = 50;
+            this.txtMunicipio.TabIndex = 11;
             // 
             // labelControl28
             // 
@@ -274,50 +307,137 @@
             // panelControl3
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl3.Controls.Add(this.simpleButton2);
-            this.panelControl3.Controls.Add(this.gridControl1);
-            this.panelControl3.Controls.Add(this.comboBoxEdit7);
+            this.panelControl3.Controls.Add(this.txtTutorCorreo);
+            this.panelControl3.Controls.Add(this.txtTutorTelefono);
+            this.panelControl3.Controls.Add(this.btnTutorGuardar);
+            this.panelControl3.Controls.Add(this.labelControl42);
+            this.panelControl3.Controls.Add(this.labelControl41);
+            this.panelControl3.Controls.Add(this.gridTutores);
+            this.panelControl3.Controls.Add(this.comboTutorParentesco);
             this.panelControl3.Controls.Add(this.labelControl32);
-            this.panelControl3.Controls.Add(this.textEdit17);
+            this.panelControl3.Controls.Add(this.txtTutorNombre);
             this.panelControl3.Controls.Add(this.labelControl31);
             this.panelControl3.Location = new System.Drawing.Point(19, 681);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(751, 205);
             this.panelControl3.TabIndex = 48;
             // 
-            // simpleButton2
+            // txtTutorCorreo
             // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(258, 45);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(122, 39);
-            this.simpleButton2.TabIndex = 50;
-            this.simpleButton2.Text = "Guardar ";
+            this.txtTutorCorreo.Location = new System.Drawing.Point(486, 45);
+            this.txtTutorCorreo.Name = "txtTutorCorreo";
+            this.txtTutorCorreo.Size = new System.Drawing.Size(149, 22);
+            this.txtTutorCorreo.TabIndex = 39;
             // 
-            // gridControl1
+            // txtTutorTelefono
             // 
-            this.gridControl1.Location = new System.Drawing.Point(17, 90);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(715, 101);
-            this.gridControl1.TabIndex = 57;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.txtTutorTelefono.Location = new System.Drawing.Point(314, 45);
+            this.txtTutorTelefono.Name = "txtTutorTelefono";
+            this.txtTutorTelefono.Properties.Mask.EditMask = "\\d\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTutorTelefono.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtTutorTelefono.Size = new System.Drawing.Size(121, 22);
+            this.txtTutorTelefono.TabIndex = 38;
             // 
-            // gridView1
+            // btnTutorGuardar
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.btnTutorGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTutorGuardar.ImageOptions.Image")));
+            this.btnTutorGuardar.Location = new System.Drawing.Point(641, 45);
+            this.btnTutorGuardar.Name = "btnTutorGuardar";
+            this.btnTutorGuardar.Size = new System.Drawing.Size(91, 39);
+            this.btnTutorGuardar.TabIndex = 40;
+            this.btnTutorGuardar.Text = "Guardar ";
+            this.btnTutorGuardar.Click += new System.EventHandler(this.btnTutorGuardar_Click);
             // 
-            // comboBoxEdit7
+            // labelControl42
             // 
-            this.comboBoxEdit7.Location = new System.Drawing.Point(86, 45);
-            this.comboBoxEdit7.Name = "comboBoxEdit7";
-            this.comboBoxEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.labelControl42.Location = new System.Drawing.Point(441, 48);
+            this.labelControl42.Name = "labelControl42";
+            this.labelControl42.Size = new System.Drawing.Size(39, 16);
+            this.labelControl42.TabIndex = 57;
+            this.labelControl42.Text = "Correo";
+            // 
+            // labelControl41
+            // 
+            this.labelControl41.Location = new System.Drawing.Point(258, 48);
+            this.labelControl41.Name = "labelControl41";
+            this.labelControl41.Size = new System.Drawing.Size(50, 16);
+            this.labelControl41.TabIndex = 58;
+            this.labelControl41.Text = "Teléfono";
+            // 
+            // gridTutores
+            // 
+            this.gridTutores.Location = new System.Drawing.Point(17, 90);
+            this.gridTutores.MainView = this.gridViewTutores;
+            this.gridTutores.Name = "gridTutores";
+            this.gridTutores.Size = new System.Drawing.Size(715, 101);
+            this.gridTutores.TabIndex = 57;
+            this.gridTutores.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTutores});
+            // 
+            // gridViewTutores
+            // 
+            this.gridViewTutores.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridViewTutores.GridControl = this.gridTutores;
+            this.gridViewTutores.Name = "gridViewTutores";
+            this.gridViewTutores.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Nombre del tutor";
+            this.gridColumn1.FieldName = "Nombre";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 94;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Parentesco";
+            this.gridColumn2.FieldName = "Parentesco";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 94;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Teléfono";
+            this.gridColumn3.FieldName = "Telefono";
+            this.gridColumn3.MinWidth = 25;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 94;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Correo";
+            this.gridColumn4.FieldName = "Correo";
+            this.gridColumn4.MinWidth = 25;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 94;
+            // 
+            // comboTutorParentesco
+            // 
+            this.comboTutorParentesco.Location = new System.Drawing.Point(86, 45);
+            this.comboTutorParentesco.Name = "comboTutorParentesco";
+            this.comboTutorParentesco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit7.Size = new System.Drawing.Size(166, 22);
-            this.comboBoxEdit7.TabIndex = 56;
+            this.comboTutorParentesco.Properties.Items.AddRange(new object[] {
+            "PADRE",
+            "MADRE",
+            "FAMILIAR",
+            "TUTOR"});
+            this.comboTutorParentesco.Size = new System.Drawing.Size(166, 22);
+            this.comboTutorParentesco.TabIndex = 37;
             // 
             // labelControl32
             // 
@@ -327,12 +447,12 @@
             this.labelControl32.TabIndex = 55;
             this.labelControl32.Text = "Parentesco";
             // 
-            // textEdit17
+            // txtTutorNombre
             // 
-            this.textEdit17.Location = new System.Drawing.Point(188, 17);
-            this.textEdit17.Name = "textEdit17";
-            this.textEdit17.Size = new System.Drawing.Size(544, 22);
-            this.textEdit17.TabIndex = 56;
+            this.txtTutorNombre.Location = new System.Drawing.Point(188, 17);
+            this.txtTutorNombre.Name = "txtTutorNombre";
+            this.txtTutorNombre.Size = new System.Drawing.Size(544, 22);
+            this.txtTutorNombre.TabIndex = 36;
             // 
             // labelControl31
             // 
@@ -353,9 +473,9 @@
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl2.Controls.Add(this.txtMensualidadTotal);
             this.panelControl2.Controls.Add(this.txtMatricula);
             this.panelControl2.Controls.Add(this.labelControl40);
-            this.panelControl2.Controls.Add(this.txtGrado);
             this.panelControl2.Controls.Add(this.labelControl38);
             this.panelControl2.Controls.Add(this.txtMonedaCor);
             this.panelControl2.Controls.Add(this.labelControl37);
@@ -368,27 +488,47 @@
             this.panelControl2.Controls.Add(this.txtMensualidad);
             this.panelControl2.Controls.Add(this.labelControl33);
             this.panelControl2.Controls.Add(this.txtTurno);
-            this.panelControl2.Controls.Add(this.txtModalidad);
-            this.panelControl2.Controls.Add(this.txtPrograma);
             this.panelControl2.Controls.Add(this.labelControl23);
             this.panelControl2.Controls.Add(this.labelControl26);
             this.panelControl2.Controls.Add(this.labelControl29);
             this.panelControl2.Controls.Add(this.labelControl30);
+            this.panelControl2.Controls.Add(this.txtPrograma);
+            this.panelControl2.Controls.Add(this.txtModalidad);
+            this.panelControl2.Controls.Add(this.txtGrado);
             this.panelControl2.Location = new System.Drawing.Point(19, 546);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(751, 107);
             this.panelControl2.TabIndex = 46;
             // 
-            // txtGrado
+            // txtMensualidadTotal
             // 
-            this.txtGrado.Location = new System.Drawing.Point(86, 43);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(166, 22);
-            this.txtGrado.TabIndex = 56;
+            this.txtMensualidadTotal.Enabled = false;
+            this.txtMensualidadTotal.Location = new System.Drawing.Point(662, 76);
+            this.txtMensualidadTotal.Name = "txtMensualidadTotal";
+            this.txtMensualidadTotal.Size = new System.Drawing.Size(70, 22);
+            this.txtMensualidadTotal.TabIndex = 100;
+            // 
+            // txtMatricula
+            // 
+            this.txtMatricula.EditValue = "0";
+            this.txtMatricula.Location = new System.Drawing.Point(581, 43);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Properties.Mask.EditMask = "d";
+            this.txtMatricula.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMatricula.Size = new System.Drawing.Size(151, 22);
+            this.txtMatricula.TabIndex = 30;
+            // 
+            // labelControl40
+            // 
+            this.labelControl40.Location = new System.Drawing.Point(15, 79);
+            this.labelControl40.Name = "labelControl40";
+            this.labelControl40.Size = new System.Drawing.Size(71, 16);
+            this.labelControl40.TabIndex = 64;
+            this.labelControl40.Text = "Mensualidad";
             // 
             // labelControl38
             // 
-            this.labelControl38.Location = new System.Drawing.Point(730, 80);
+            this.labelControl38.Location = new System.Drawing.Point(641, 80);
             this.labelControl38.Name = "labelControl38";
             this.labelControl38.Size = new System.Drawing.Size(15, 16);
             this.labelControl38.TabIndex = 63;
@@ -396,15 +536,17 @@
             // 
             // txtMonedaCor
             // 
-            this.txtMonedaCor.Location = new System.Drawing.Point(685, 77);
+            this.txtMonedaCor.Location = new System.Drawing.Point(577, 77);
             this.txtMonedaCor.Name = "txtMonedaCor";
-            this.txtMonedaCor.Size = new System.Drawing.Size(43, 22);
-            this.txtMonedaCor.TabIndex = 62;
+            this.txtMonedaCor.Properties.Mask.EditMask = "d";
+            this.txtMonedaCor.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMonedaCor.Size = new System.Drawing.Size(58, 22);
+            this.txtMonedaCor.TabIndex = 35;
             this.txtMonedaCor.EditValueChanged += new System.EventHandler(this.txtMonedaCor_EditValueChanged);
             // 
             // labelControl37
             // 
-            this.labelControl37.Location = new System.Drawing.Point(667, 80);
+            this.labelControl37.Location = new System.Drawing.Point(559, 80);
             this.labelControl37.Name = "labelControl37";
             this.labelControl37.Size = new System.Drawing.Size(12, 16);
             this.labelControl37.TabIndex = 61;
@@ -412,7 +554,7 @@
             // 
             // comboTpBeca
             // 
-            this.comboTpBeca.Location = new System.Drawing.Point(400, 77);
+            this.comboTpBeca.Location = new System.Drawing.Point(339, 77);
             this.comboTpBeca.Name = "comboTpBeca";
             this.comboTpBeca.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -422,12 +564,12 @@
             "Cultural",
             "Otro"});
             this.comboTpBeca.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboTpBeca.Size = new System.Drawing.Size(166, 22);
-            this.comboTpBeca.TabIndex = 60;
+            this.comboTpBeca.Size = new System.Drawing.Size(128, 22);
+            this.comboTpBeca.TabIndex = 33;
             // 
             // labelControl36
             // 
-            this.labelControl36.Location = new System.Drawing.Point(369, 79);
+            this.labelControl36.Location = new System.Drawing.Point(308, 79);
             this.labelControl36.Name = "labelControl36";
             this.labelControl36.Size = new System.Drawing.Size(25, 16);
             this.labelControl36.TabIndex = 59;
@@ -435,24 +577,26 @@
             // 
             // checkBeca
             // 
-            this.checkBeca.Location = new System.Drawing.Point(322, 77);
+            this.checkBeca.Location = new System.Drawing.Point(261, 77);
             this.checkBeca.Name = "checkBeca";
             this.checkBeca.Properties.Caption = "Si";
             this.checkBeca.Size = new System.Drawing.Size(47, 21);
-            this.checkBeca.TabIndex = 51;
+            this.checkBeca.TabIndex = 32;
             this.checkBeca.CheckedChanged += new System.EventHandler(this.checkBeca_CheckedChanged);
             // 
             // txtMontoPor
             // 
-            this.txtMontoPor.Location = new System.Drawing.Point(622, 77);
+            this.txtMontoPor.Location = new System.Drawing.Point(514, 77);
             this.txtMontoPor.Name = "txtMontoPor";
+            this.txtMontoPor.Properties.Mask.EditMask = "d";
+            this.txtMontoPor.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMontoPor.Size = new System.Drawing.Size(43, 22);
-            this.txtMontoPor.TabIndex = 58;
+            this.txtMontoPor.TabIndex = 34;
             this.txtMontoPor.EditValueChanged += new System.EventHandler(this.txtMontoPor_EditValueChanged);
             // 
             // labelControl35
             // 
-            this.labelControl35.Location = new System.Drawing.Point(251, 79);
+            this.labelControl35.Location = new System.Drawing.Point(190, 79);
             this.labelControl35.Name = "labelControl35";
             this.labelControl35.Size = new System.Drawing.Size(65, 16);
             this.labelControl35.TabIndex = 50;
@@ -460,7 +604,7 @@
             // 
             // labelControl34
             // 
-            this.labelControl34.Location = new System.Drawing.Point(581, 80);
+            this.labelControl34.Location = new System.Drawing.Point(473, 80);
             this.labelControl34.Name = "labelControl34";
             this.labelControl34.Size = new System.Drawing.Size(35, 16);
             this.labelControl34.TabIndex = 57;
@@ -468,10 +612,13 @@
             // 
             // txtMensualidad
             // 
+            this.txtMensualidad.EditValue = "0";
             this.txtMensualidad.Location = new System.Drawing.Point(92, 77);
             this.txtMensualidad.Name = "txtMensualidad";
-            this.txtMensualidad.Size = new System.Drawing.Size(151, 22);
-            this.txtMensualidad.TabIndex = 56;
+            this.txtMensualidad.Properties.Mask.EditMask = "d";
+            this.txtMensualidad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMensualidad.Size = new System.Drawing.Size(91, 22);
+            this.txtMensualidad.TabIndex = 31;
             // 
             // labelControl33
             // 
@@ -492,21 +639,7 @@
             "Vespertino"});
             this.txtTurno.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtTurno.Size = new System.Drawing.Size(166, 22);
-            this.txtTurno.TabIndex = 54;
-            // 
-            // txtModalidad
-            // 
-            this.txtModalidad.Location = new System.Drawing.Point(521, 9);
-            this.txtModalidad.Name = "txtModalidad";
-            this.txtModalidad.Size = new System.Drawing.Size(211, 22);
-            this.txtModalidad.TabIndex = 53;
-            // 
-            // txtPrograma
-            // 
-            this.txtPrograma.Location = new System.Drawing.Point(167, 9);
-            this.txtPrograma.Name = "txtPrograma";
-            this.txtPrograma.Size = new System.Drawing.Size(284, 22);
-            this.txtPrograma.TabIndex = 52;
+            this.txtTurno.TabIndex = 29;
             // 
             // labelControl23
             // 
@@ -540,14 +673,43 @@
             this.labelControl30.TabIndex = 44;
             this.labelControl30.Text = "Modalidad";
             // 
+            // txtPrograma
+            // 
+            this.txtPrograma.Location = new System.Drawing.Point(167, 9);
+            this.txtPrograma.Name = "txtPrograma";
+            this.txtPrograma.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPrograma.Properties.Items.AddRange(new object[] {
+            "PRIMARIA",
+            "SECUNDARIA"});
+            this.txtPrograma.Size = new System.Drawing.Size(284, 22);
+            this.txtPrograma.TabIndex = 26;
+            // 
+            // txtModalidad
+            // 
+            this.txtModalidad.Location = new System.Drawing.Point(521, 9);
+            this.txtModalidad.Name = "txtModalidad";
+            this.txtModalidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtModalidad.Properties.Items.AddRange(new object[] {
+            "DIURNA"});
+            this.txtModalidad.Size = new System.Drawing.Size(211, 22);
+            this.txtModalidad.TabIndex = 27;
+            // 
+            // txtGrado
+            // 
+            this.txtGrado.Location = new System.Drawing.Point(86, 43);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtGrado.Size = new System.Drawing.Size(166, 22);
+            this.txtGrado.TabIndex = 28;
+            // 
             // panelTraslado
             // 
             this.panelTraslado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelTraslado.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelTraslado.Controls.Add(this.txtTrasladoGrado);
             this.panelTraslado.Controls.Add(this.comboTrasladoPeriodo);
-            this.panelTraslado.Controls.Add(this.txtTrasladoModalidad);
-            this.panelTraslado.Controls.Add(this.txtTrasladoPrograma);
             this.panelTraslado.Controls.Add(this.txtTrasladoCodCentro);
             this.panelTraslado.Controls.Add(this.txtTrasladoCodEstabl);
             this.panelTraslado.Controls.Add(this.txtTrasladoNombre);
@@ -558,17 +720,13 @@
             this.panelTraslado.Controls.Add(this.labelControl20);
             this.panelTraslado.Controls.Add(this.labelControl19);
             this.panelTraslado.Controls.Add(this.labelControl14);
+            this.panelTraslado.Controls.Add(this.txtTrasladoPrograma);
+            this.panelTraslado.Controls.Add(this.txtTrasladoModalidad);
+            this.panelTraslado.Controls.Add(this.txtTrasladoGrado);
             this.panelTraslado.Location = new System.Drawing.Point(19, 368);
             this.panelTraslado.Name = "panelTraslado";
             this.panelTraslado.Size = new System.Drawing.Size(751, 150);
             this.panelTraslado.TabIndex = 45;
-            // 
-            // txtTrasladoGrado
-            // 
-            this.txtTrasladoGrado.Location = new System.Drawing.Point(82, 109);
-            this.txtTrasladoGrado.Name = "txtTrasladoGrado";
-            this.txtTrasladoGrado.Size = new System.Drawing.Size(166, 22);
-            this.txtTrasladoGrado.TabIndex = 55;
             // 
             // comboTrasladoPeriodo
             // 
@@ -584,42 +742,30 @@
             "4to Corte"});
             this.comboTrasladoPeriodo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboTrasladoPeriodo.Size = new System.Drawing.Size(166, 22);
-            this.comboTrasladoPeriodo.TabIndex = 54;
-            // 
-            // txtTrasladoModalidad
-            // 
-            this.txtTrasladoModalidad.Location = new System.Drawing.Point(521, 75);
-            this.txtTrasladoModalidad.Name = "txtTrasladoModalidad";
-            this.txtTrasladoModalidad.Size = new System.Drawing.Size(211, 22);
-            this.txtTrasladoModalidad.TabIndex = 53;
-            // 
-            // txtTrasladoPrograma
-            // 
-            this.txtTrasladoPrograma.Location = new System.Drawing.Point(167, 75);
-            this.txtTrasladoPrograma.Name = "txtTrasladoPrograma";
-            this.txtTrasladoPrograma.Size = new System.Drawing.Size(284, 22);
-            this.txtTrasladoPrograma.TabIndex = 52;
+            this.comboTrasladoPeriodo.TabIndex = 25;
             // 
             // txtTrasladoCodCentro
             // 
             this.txtTrasladoCodCentro.Location = new System.Drawing.Point(560, 11);
             this.txtTrasladoCodCentro.Name = "txtTrasladoCodCentro";
             this.txtTrasladoCodCentro.Size = new System.Drawing.Size(172, 22);
-            this.txtTrasladoCodCentro.TabIndex = 51;
+            this.txtTrasladoCodCentro.TabIndex = 20;
             // 
             // txtTrasladoCodEstabl
             // 
             this.txtTrasladoCodEstabl.Location = new System.Drawing.Point(232, 11);
             this.txtTrasladoCodEstabl.Name = "txtTrasladoCodEstabl";
             this.txtTrasladoCodEstabl.Size = new System.Drawing.Size(219, 22);
-            this.txtTrasladoCodEstabl.TabIndex = 46;
+            this.txtTrasladoCodEstabl.TabIndex = 19;
             // 
             // txtTrasladoNombre
             // 
             this.txtTrasladoNombre.Location = new System.Drawing.Point(243, 44);
             this.txtTrasladoNombre.Name = "txtTrasladoNombre";
+            this.txtTrasladoNombre.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtTrasladoNombre.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtTrasladoNombre.Size = new System.Drawing.Size(489, 22);
-            this.txtTrasladoNombre.TabIndex = 47;
+            this.txtTrasladoNombre.TabIndex = 21;
             // 
             // labelControl25
             // 
@@ -677,13 +823,59 @@
             this.labelControl14.TabIndex = 43;
             this.labelControl14.Text = "Código unico establecimiento escolar";
             // 
+            // txtTrasladoPrograma
+            // 
+            this.txtTrasladoPrograma.Location = new System.Drawing.Point(167, 75);
+            this.txtTrasladoPrograma.Name = "txtTrasladoPrograma";
+            this.txtTrasladoPrograma.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTrasladoPrograma.Properties.Items.AddRange(new object[] {
+            "PRIMARIA",
+            "SECUNDARIA"});
+            this.txtTrasladoPrograma.Size = new System.Drawing.Size(284, 22);
+            this.txtTrasladoPrograma.TabIndex = 22;
+            this.txtTrasladoPrograma.EditValueChanged += new System.EventHandler(this.txtTrasladoPrograma_EditValueChanged);
+            // 
+            // txtTrasladoModalidad
+            // 
+            this.txtTrasladoModalidad.Location = new System.Drawing.Point(521, 75);
+            this.txtTrasladoModalidad.Name = "txtTrasladoModalidad";
+            this.txtTrasladoModalidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTrasladoModalidad.Properties.Items.AddRange(new object[] {
+            "DIURNA",
+            "SABATINA",
+            "NOCTURNA",
+            "OTRA"});
+            this.txtTrasladoModalidad.Size = new System.Drawing.Size(211, 22);
+            this.txtTrasladoModalidad.TabIndex = 23;
+            // 
+            // txtTrasladoGrado
+            // 
+            this.txtTrasladoGrado.Location = new System.Drawing.Point(82, 109);
+            this.txtTrasladoGrado.Name = "txtTrasladoGrado";
+            this.txtTrasladoGrado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTrasladoGrado.Properties.NullText = "";
+            this.txtTrasladoGrado.Properties.PopupSizeable = false;
+            this.txtTrasladoGrado.Properties.PopupView = this.gridLookUpEdit1View;
+            this.txtTrasladoGrado.Size = new System.Drawing.Size(166, 22);
+            this.txtTrasladoGrado.TabIndex = 24;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // checkTraslado
             // 
             this.checkTraslado.Location = new System.Drawing.Point(158, 344);
             this.checkTraslado.Name = "checkTraslado";
             this.checkTraslado.Properties.Caption = "Si";
             this.checkTraslado.Size = new System.Drawing.Size(94, 21);
-            this.checkTraslado.TabIndex = 43;
+            this.checkTraslado.TabIndex = 18;
             this.checkTraslado.CheckedChanged += new System.EventHandler(this.checkTraslado_CheckedChanged);
             // 
             // labelControl13
@@ -699,8 +891,8 @@
             this.txtPadecimientos.Location = new System.Drawing.Point(511, 229);
             this.txtPadecimientos.Name = "txtPadecimientos";
             this.txtPadecimientos.Size = new System.Drawing.Size(259, 108);
-            this.txtPadecimientos.TabIndex = 41;
-            this.txtPadecimientos.Text = "";
+            this.txtPadecimientos.TabIndex = 17;
+            this.txtPadecimientos.Text = "Ninguno";
             this.txtPadecimientos.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // txtDireccion
@@ -708,7 +900,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(80, 259);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(331, 78);
-            this.txtDireccion.TabIndex = 40;
+            this.txtDireccion.TabIndex = 16;
             this.txtDireccion.Text = "";
             // 
             // labelControl18
@@ -725,7 +917,7 @@
             this.checkPartidaNo.Name = "checkPartidaNo";
             this.checkPartidaNo.Properties.Caption = "No";
             this.checkPartidaNo.Size = new System.Drawing.Size(94, 21);
-            this.checkPartidaNo.TabIndex = 36;
+            this.checkPartidaNo.TabIndex = 15;
             this.checkPartidaNo.CheckedChanged += new System.EventHandler(this.checkPartidaNo_CheckedChanged);
             // 
             // checkPartida
@@ -734,7 +926,7 @@
             this.checkPartida.Name = "checkPartida";
             this.checkPartida.Properties.Caption = "Si";
             this.checkPartida.Size = new System.Drawing.Size(94, 21);
-            this.checkPartida.TabIndex = 35;
+            this.checkPartida.TabIndex = 14;
             this.checkPartida.CheckedChanged += new System.EventHandler(this.checkPartida_CheckedChanged);
             // 
             // labelControl17
@@ -747,7 +939,7 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(226, 229);
+            this.labelControl16.Location = new System.Drawing.Point(226, 198);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(53, 16);
             this.labelControl16.TabIndex = 32;
@@ -755,7 +947,7 @@
             // 
             // comboDepartamento
             // 
-            this.comboDepartamento.Location = new System.Drawing.Point(111, 226);
+            this.comboDepartamento.Location = new System.Drawing.Point(111, 195);
             this.comboDepartamento.Name = "comboDepartamento";
             this.comboDepartamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -779,21 +971,24 @@
             "Rivas"});
             this.comboDepartamento.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboDepartamento.Size = new System.Drawing.Size(109, 22);
-            this.comboDepartamento.TabIndex = 31;
+            this.comboDepartamento.TabIndex = 10;
             // 
             // txtNacionalidad
             // 
-            this.txtNacionalidad.Location = new System.Drawing.Point(285, 195);
+            this.txtNacionalidad.EditValue = "Nicaragua";
+            this.txtNacionalidad.Location = new System.Drawing.Point(101, 226);
             this.txtNacionalidad.Name = "txtNacionalidad";
             this.txtNacionalidad.Size = new System.Drawing.Size(126, 22);
-            this.txtNacionalidad.TabIndex = 30;
+            this.txtNacionalidad.TabIndex = 12;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(80, 195);
+            this.txtTelefono.Location = new System.Drawing.Point(290, 226);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Properties.Mask.EditMask = "\\d\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTelefono.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtTelefono.Size = new System.Drawing.Size(121, 22);
-            this.txtTelefono.TabIndex = 29;
+            this.txtTelefono.TabIndex = 13;
             // 
             // labelControl15
             // 
@@ -805,7 +1000,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(24, 229);
+            this.labelControl12.Location = new System.Drawing.Point(24, 198);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(81, 16);
             this.labelControl12.TabIndex = 25;
@@ -813,7 +1008,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(207, 198);
+            this.labelControl11.Location = new System.Drawing.Point(23, 229);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(72, 16);
             this.labelControl11.TabIndex = 24;
@@ -821,7 +1016,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(24, 198);
+            this.labelControl10.Location = new System.Drawing.Point(234, 229);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(50, 16);
             this.labelControl10.TabIndex = 23;
@@ -829,14 +1024,14 @@
             // 
             // txtCarnet
             // 
-            this.txtCarnet.Location = new System.Drawing.Point(556, 128);
+            this.txtCarnet.Location = new System.Drawing.Point(556, 169);
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(214, 22);
             this.txtCarnet.TabIndex = 22;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(556, 110);
+            this.labelControl9.Location = new System.Drawing.Point(556, 151);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(34, 16);
             this.labelControl9.TabIndex = 21;
@@ -844,14 +1039,14 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(556, 88);
+            this.txtCorreo.Location = new System.Drawing.Point(556, 129);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(214, 22);
             this.txtCorreo.TabIndex = 20;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(556, 68);
+            this.labelControl8.Location = new System.Drawing.Point(556, 109);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(110, 16);
             this.labelControl8.TabIndex = 19;
@@ -859,6 +1054,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Enabled = false;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(428, 170);
             this.simpleButton1.Name = "simpleButton1";
@@ -872,7 +1068,7 @@
             this.checkFemenino.Name = "checkFemenino";
             this.checkFemenino.Properties.Caption = "Femenino";
             this.checkFemenino.Size = new System.Drawing.Size(94, 21);
-            this.checkFemenino.TabIndex = 17;
+            this.checkFemenino.TabIndex = 8;
             this.checkFemenino.CheckedChanged += new System.EventHandler(this.checkFemenino_CheckedChanged);
             // 
             // checkMasculino
@@ -881,26 +1077,25 @@
             this.checkMasculino.Name = "checkMasculino";
             this.checkMasculino.Properties.Caption = "Masculino";
             this.checkMasculino.Size = new System.Drawing.Size(94, 21);
-            this.checkMasculino.TabIndex = 16;
+            this.checkMasculino.TabIndex = 7;
             this.checkMasculino.CheckedChanged += new System.EventHandler(this.checkMasculino_CheckedChanged);
             // 
             // dateFechaNacimiento
             // 
             this.dateFechaNacimiento.EditValue = null;
-            this.dateFechaNacimiento.Location = new System.Drawing.Point(556, 45);
+            this.dateFechaNacimiento.Location = new System.Drawing.Point(556, 86);
             this.dateFechaNacimiento.Name = "dateFechaNacimiento";
             this.dateFechaNacimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateFechaNacimiento.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaNacimiento.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateFechaNacimiento.Size = new System.Drawing.Size(214, 22);
-            this.dateFechaNacimiento.TabIndex = 15;
+            this.dateFechaNacimiento.TabIndex = 9;
             this.dateFechaNacimiento.EditValueChanged += new System.EventHandler(this.dateFechaNacimiento_EditValueChanged);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(556, 25);
+            this.labelControl7.Location = new System.Drawing.Point(556, 66);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(119, 16);
             this.labelControl7.TabIndex = 14;
@@ -918,47 +1113,57 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(134, 27);
+            this.txtCedula.Location = new System.Drawing.Point(556, 42);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(177, 22);
-            this.txtCedula.TabIndex = 12;
+            this.txtCedula.Properties.Mask.EditMask = "\\d\\d\\d-\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\p{Lu}";
+            this.txtCedula.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtCedula.Size = new System.Drawing.Size(214, 22);
+            this.txtCedula.TabIndex = 2;
             // 
             // checkCedula
             // 
-            this.checkCedula.Location = new System.Drawing.Point(317, 27);
+            this.checkCedula.Location = new System.Drawing.Point(666, 21);
             this.checkCedula.Name = "checkCedula";
             this.checkCedula.Properties.Caption = "No posee";
             this.checkCedula.Size = new System.Drawing.Size(94, 21);
-            this.checkCedula.TabIndex = 11;
+            this.checkCedula.TabIndex = 56;
             this.checkCedula.CheckedChanged += new System.EventHandler(this.checkCedula_CheckedChanged);
             // 
             // txtSegundoApellido
             // 
             this.txtSegundoApellido.Location = new System.Drawing.Point(98, 140);
             this.txtSegundoApellido.Name = "txtSegundoApellido";
+            this.txtSegundoApellido.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtSegundoApellido.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtSegundoApellido.Size = new System.Drawing.Size(313, 22);
-            this.txtSegundoApellido.TabIndex = 9;
+            this.txtSegundoApellido.TabIndex = 6;
             // 
             // txtPrimerApellido
             // 
             this.txtPrimerApellido.Location = new System.Drawing.Point(98, 111);
             this.txtPrimerApellido.Name = "txtPrimerApellido";
+            this.txtPrimerApellido.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtPrimerApellido.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrimerApellido.Size = new System.Drawing.Size(313, 22);
-            this.txtPrimerApellido.TabIndex = 8;
+            this.txtPrimerApellido.TabIndex = 5;
             // 
             // txtSegundoNombre
             // 
             this.txtSegundoNombre.Location = new System.Drawing.Point(98, 83);
             this.txtSegundoNombre.Name = "txtSegundoNombre";
+            this.txtSegundoNombre.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtSegundoNombre.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtSegundoNombre.Size = new System.Drawing.Size(313, 22);
-            this.txtSegundoNombre.TabIndex = 7;
+            this.txtSegundoNombre.TabIndex = 4;
             // 
             // txtPrimerNombre
             // 
             this.txtPrimerNombre.Location = new System.Drawing.Point(98, 55);
             this.txtPrimerNombre.Name = "txtPrimerNombre";
+            this.txtPrimerNombre.Properties.Mask.EditMask = "\\p{Lu}+";
+            this.txtPrimerNombre.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrimerNombre.Size = new System.Drawing.Size(313, 22);
-            this.txtPrimerNombre.TabIndex = 6;
+            this.txtPrimerNombre.TabIndex = 3;
             // 
             // labelControl6
             // 
@@ -1002,41 +1207,11 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(24, 29);
+            this.labelControl1.Location = new System.Drawing.Point(556, 23);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(104, 16);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Número de cédula";
-            // 
-            // txtCodMINED
-            // 
-            this.txtCodMINED.Location = new System.Drawing.Point(556, 170);
-            this.txtCodMINED.Name = "txtCodMINED";
-            this.txtCodMINED.Size = new System.Drawing.Size(214, 22);
-            this.txtCodMINED.TabIndex = 52;
-            // 
-            // labelControl39
-            // 
-            this.labelControl39.Location = new System.Drawing.Point(556, 152);
-            this.labelControl39.Name = "labelControl39";
-            this.labelControl39.Size = new System.Drawing.Size(67, 16);
-            this.labelControl39.TabIndex = 51;
-            this.labelControl39.Text = "Cod. MINED";
-            // 
-            // txtMatricula
-            // 
-            this.txtMatricula.Location = new System.Drawing.Point(581, 43);
-            this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(151, 22);
-            this.txtMatricula.TabIndex = 65;
-            // 
-            // labelControl40
-            // 
-            this.labelControl40.Location = new System.Drawing.Point(15, 79);
-            this.labelControl40.Name = "labelControl40";
-            this.labelControl40.Size = new System.Drawing.Size(71, 16);
-            this.labelControl40.TabIndex = 64;
-            this.labelControl40.Text = "Mensualidad";
             // 
             // NuevoEstudiante
             // 
@@ -1053,36 +1228,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodMINED.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMunicipio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorCorreo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorTelefono.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMensualidadTotal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatricula.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonedaCor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboTpBeca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBeca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoPor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMensualidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurno.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModalidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrograma.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModalidad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGrado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelTraslado)).EndInit();
             this.panelTraslado.ResumeLayout(false);
             this.panelTraslado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboTrasladoPeriodo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodCentro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodEstabl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTraslado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartidaNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartida.Properties)).EndInit();
@@ -1102,8 +1283,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodMINED.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatricula.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1159,15 +1338,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl27;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.ComboBoxEdit txtTurno;
-        private DevExpress.XtraEditors.TextEdit txtModalidad;
-        private DevExpress.XtraEditors.TextEdit txtPrograma;
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.ComboBoxEdit comboTrasladoPeriodo;
-        private DevExpress.XtraEditors.TextEdit txtTrasladoModalidad;
-        private DevExpress.XtraEditors.TextEdit txtTrasladoPrograma;
         private DevExpress.XtraEditors.TextEdit txtTrasladoCodCentro;
         private DevExpress.XtraEditors.TextEdit txtTrasladoCodEstabl;
         private DevExpress.XtraEditors.TextEdit txtTrasladoNombre;
@@ -1179,12 +1354,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl28;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit7;
+        private DevExpress.XtraEditors.SimpleButton btnTutorGuardar;
+        private DevExpress.XtraGrid.GridControl gridTutores;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTutores;
+        private DevExpress.XtraEditors.ComboBoxEdit comboTutorParentesco;
         private DevExpress.XtraEditors.LabelControl labelControl32;
-        private DevExpress.XtraEditors.TextEdit textEdit17;
+        private DevExpress.XtraEditors.TextEdit txtTutorNombre;
         private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.LabelControl labelControl38;
         private DevExpress.XtraEditors.TextEdit txtMonedaCor;
@@ -1198,11 +1373,25 @@
         private DevExpress.XtraEditors.TextEdit txtMensualidad;
         private DevExpress.XtraEditors.LabelControl labelControl33;
         private DevExpress.XtraEditors.TextEdit txtMunicipio;
-        private DevExpress.XtraEditors.TextEdit txtTrasladoGrado;
-        private DevExpress.XtraEditors.TextEdit txtGrado;
         private DevExpress.XtraEditors.TextEdit txtCodMINED;
         private DevExpress.XtraEditors.LabelControl labelControl39;
         private DevExpress.XtraEditors.TextEdit txtMatricula;
         private DevExpress.XtraEditors.LabelControl labelControl40;
+        private DevExpress.XtraEditors.ComboBoxEdit txtPrograma;
+        private DevExpress.XtraEditors.ComboBoxEdit txtModalidad;
+        private DevExpress.XtraEditors.ComboBoxEdit txtGrado;
+        private DevExpress.XtraEditors.ComboBoxEdit txtTrasladoPrograma;
+        private DevExpress.XtraEditors.ComboBoxEdit txtTrasladoModalidad;
+        private DevExpress.XtraEditors.GridLookUpEdit txtTrasladoGrado;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraEditors.TextEdit txtMensualidadTotal;
+        private DevExpress.XtraEditors.TextEdit txtTutorCorreo;
+        private DevExpress.XtraEditors.TextEdit txtTutorTelefono;
+        private DevExpress.XtraEditors.LabelControl labelControl42;
+        private DevExpress.XtraEditors.LabelControl labelControl41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

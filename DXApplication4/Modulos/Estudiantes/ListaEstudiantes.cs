@@ -67,5 +67,76 @@ namespace DXApplication4.Modulos.Estudiantes
             gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.MODALIDAD='SECUNDARIA'");
 
         }
+
+        private void navBarControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemPrimerGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='PRIMER GRADO'");
+
+        }
+
+        private void itemSegundoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='SEGUNDO GRADO'");
+
+        }
+
+        private void itemTercerGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='TERCER GRADO'");
+
+        }
+
+        private void itemCuartoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='CUARTO GRADO'");
+
+        }
+
+        private void itemQuintoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='QUINTO GRADO'");
+
+        }
+
+        private void itemSextoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='SEXTO GRADO'");
+
+        }
+
+        private void itemSeptimoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='SEPTIMO GRADO'");
+
+        }
+
+        private void itemOctavoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='OCTAVO GRADO'");
+
+        }
+
+        private void itemNovenoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='NOVENO GRADO'");
+
+        }
+
+        private void itemDecimoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='DECIMO GRADO'");
+
+        }
+
+        private void itemUndecimoGrado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='UNDECIMO GRADO'");
+
+        }
     }
 }

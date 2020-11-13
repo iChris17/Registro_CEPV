@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DXApplication4
 {
@@ -204,8 +205,7 @@ namespace DXApplication4
             catch (Exception ex)
             {
                 exito = false;
-
-                throw new Exception(ex.Message);
+                MessageBox.Show($"({Procedimiento}) {ex.Message}");
             }
 
             cn.Close();

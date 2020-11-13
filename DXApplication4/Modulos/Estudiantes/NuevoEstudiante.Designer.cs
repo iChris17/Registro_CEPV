@@ -49,7 +49,6 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.comboTutorParentesco = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.txtTutorNombre = new DevExpress.XtraEditors.TextEdit();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
@@ -76,7 +75,7 @@
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrograma = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtModalidad = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtGrado = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtGrado = new DevExpress.XtraEditors.LookUpEdit();
             this.panelTraslado = new DevExpress.XtraEditors.PanelControl();
             this.comboTrasladoPeriodo = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtTrasladoCodCentro = new DevExpress.XtraEditors.TextEdit();
@@ -90,9 +89,9 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtTrasladoPrograma = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtTrasladoModalidad = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtTrasladoGrado = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtTrasladoModalidad = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkTraslado = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.txtPadecimientos = new System.Windows.Forms.RichTextBox();
@@ -132,6 +131,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.comboTutorParentesco = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -143,7 +143,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorTelefono.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -165,9 +164,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodEstabl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTraslado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartidaNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartida.Properties)).BeginInit();
@@ -187,6 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // officeNavigationBar1
@@ -206,7 +206,7 @@
             // navigationBarItem1
             // 
             this.navigationBarItem1.Name = "navigationBarItem1";
-            this.navigationBarItem1.Text = "Guardar";
+            this.navigationBarItem1.Text = "Guardar (F10)";
             // 
             // navigationBarItem2
             // 
@@ -313,10 +313,10 @@
             this.panelControl3.Controls.Add(this.labelControl42);
             this.panelControl3.Controls.Add(this.labelControl41);
             this.panelControl3.Controls.Add(this.gridTutores);
-            this.panelControl3.Controls.Add(this.comboTutorParentesco);
             this.panelControl3.Controls.Add(this.labelControl32);
             this.panelControl3.Controls.Add(this.txtTutorNombre);
             this.panelControl3.Controls.Add(this.labelControl31);
+            this.panelControl3.Controls.Add(this.comboTutorParentesco);
             this.panelControl3.Location = new System.Drawing.Point(19, 681);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(751, 205);
@@ -424,20 +424,6 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 94;
-            // 
-            // comboTutorParentesco
-            // 
-            this.comboTutorParentesco.Location = new System.Drawing.Point(86, 45);
-            this.comboTutorParentesco.Name = "comboTutorParentesco";
-            this.comboTutorParentesco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboTutorParentesco.Properties.Items.AddRange(new object[] {
-            "PADRE",
-            "MADRE",
-            "FAMILIAR",
-            "TUTOR"});
-            this.comboTutorParentesco.Size = new System.Drawing.Size(166, 22);
-            this.comboTutorParentesco.TabIndex = 37;
             // 
             // labelControl32
             // 
@@ -684,6 +670,7 @@
             "SECUNDARIA"});
             this.txtPrograma.Size = new System.Drawing.Size(284, 22);
             this.txtPrograma.TabIndex = 26;
+            this.txtPrograma.EditValueChanged += new System.EventHandler(this.txtPrograma_EditValueChanged);
             // 
             // txtModalidad
             // 
@@ -702,6 +689,10 @@
             this.txtGrado.Name = "txtGrado";
             this.txtGrado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtGrado.Properties.DisplayMember = "GRADO";
+            this.txtGrado.Properties.NullText = "";
+            this.txtGrado.Properties.PopupSizeable = false;
+            this.txtGrado.Properties.ValueMember = "GRADO";
             this.txtGrado.Size = new System.Drawing.Size(166, 22);
             this.txtGrado.TabIndex = 28;
             // 
@@ -721,8 +712,8 @@
             this.panelTraslado.Controls.Add(this.labelControl19);
             this.panelTraslado.Controls.Add(this.labelControl14);
             this.panelTraslado.Controls.Add(this.txtTrasladoPrograma);
-            this.panelTraslado.Controls.Add(this.txtTrasladoModalidad);
             this.panelTraslado.Controls.Add(this.txtTrasladoGrado);
+            this.panelTraslado.Controls.Add(this.txtTrasladoModalidad);
             this.panelTraslado.Location = new System.Drawing.Point(19, 368);
             this.panelTraslado.Name = "panelTraslado";
             this.panelTraslado.Size = new System.Drawing.Size(751, 150);
@@ -836,20 +827,6 @@
             this.txtTrasladoPrograma.TabIndex = 22;
             this.txtTrasladoPrograma.EditValueChanged += new System.EventHandler(this.txtTrasladoPrograma_EditValueChanged);
             // 
-            // txtTrasladoModalidad
-            // 
-            this.txtTrasladoModalidad.Location = new System.Drawing.Point(521, 75);
-            this.txtTrasladoModalidad.Name = "txtTrasladoModalidad";
-            this.txtTrasladoModalidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtTrasladoModalidad.Properties.Items.AddRange(new object[] {
-            "DIURNA",
-            "SABATINA",
-            "NOCTURNA",
-            "OTRA"});
-            this.txtTrasladoModalidad.Size = new System.Drawing.Size(211, 22);
-            this.txtTrasladoModalidad.TabIndex = 23;
-            // 
             // txtTrasladoGrado
             // 
             this.txtTrasladoGrado.Location = new System.Drawing.Point(82, 109);
@@ -868,6 +845,20 @@
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // txtTrasladoModalidad
+            // 
+            this.txtTrasladoModalidad.Location = new System.Drawing.Point(521, 75);
+            this.txtTrasladoModalidad.Name = "txtTrasladoModalidad";
+            this.txtTrasladoModalidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTrasladoModalidad.Properties.Items.AddRange(new object[] {
+            "DIURNA",
+            "SABATINA",
+            "NOCTURNA",
+            "OTRA"});
+            this.txtTrasladoModalidad.Size = new System.Drawing.Size(211, 22);
+            this.txtTrasladoModalidad.TabIndex = 23;
             // 
             // checkTraslado
             // 
@@ -1213,6 +1204,20 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Número de cédula";
             // 
+            // comboTutorParentesco
+            // 
+            this.comboTutorParentesco.Location = new System.Drawing.Point(86, 45);
+            this.comboTutorParentesco.Name = "comboTutorParentesco";
+            this.comboTutorParentesco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboTutorParentesco.Properties.DisplayMember = "TIPO";
+            this.comboTutorParentesco.Properties.NullText = "";
+            this.comboTutorParentesco.Properties.PopupSizeable = false;
+            this.comboTutorParentesco.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboTutorParentesco.Properties.ValueMember = "TIPO";
+            this.comboTutorParentesco.Size = new System.Drawing.Size(166, 22);
+            this.comboTutorParentesco.TabIndex = 37;
+            // 
             // NuevoEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1221,9 +1226,11 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.officeNavigationBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "NuevoEstudiante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo estudiante";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NuevoEstudiante_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -1237,7 +1244,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorTelefono.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
@@ -1261,9 +1267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoCodEstabl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoPrograma.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoGrado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrasladoModalidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTraslado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartidaNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPartida.Properties)).EndInit();
@@ -1283,6 +1289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1357,7 +1364,6 @@
         private DevExpress.XtraEditors.SimpleButton btnTutorGuardar;
         private DevExpress.XtraGrid.GridControl gridTutores;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTutores;
-        private DevExpress.XtraEditors.ComboBoxEdit comboTutorParentesco;
         private DevExpress.XtraEditors.LabelControl labelControl32;
         private DevExpress.XtraEditors.TextEdit txtTutorNombre;
         private DevExpress.XtraEditors.LabelControl labelControl31;
@@ -1379,9 +1385,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl40;
         private DevExpress.XtraEditors.ComboBoxEdit txtPrograma;
         private DevExpress.XtraEditors.ComboBoxEdit txtModalidad;
-        private DevExpress.XtraEditors.ComboBoxEdit txtGrado;
         private DevExpress.XtraEditors.ComboBoxEdit txtTrasladoPrograma;
-        private DevExpress.XtraEditors.ComboBoxEdit txtTrasladoModalidad;
         private DevExpress.XtraEditors.GridLookUpEdit txtTrasladoGrado;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.TextEdit txtMensualidadTotal;
@@ -1393,5 +1397,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.LookUpEdit txtGrado;
+        private DevExpress.XtraEditors.ComboBoxEdit txtTrasladoModalidad;
+        private DevExpress.XtraEditors.LookUpEdit comboTutorParentesco;
     }
 }

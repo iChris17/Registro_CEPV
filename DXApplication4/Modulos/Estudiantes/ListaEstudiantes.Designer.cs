@@ -46,18 +46,18 @@
             this.itemPrimaria = new DevExpress.XtraNavBar.NavBarItem();
             this.itemSecundaria = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemPrimerGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemSegundoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemTercerGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemCuartoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemQuintoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemSextoGrado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemSeptimoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemOctavoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemNovenoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemDecimoGrado = new DevExpress.XtraNavBar.NavBarItem();
+            this.itemUndecimoGrado = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.lblEstadoEstudiante = new DevExpress.XtraEditors.LabelControl();
@@ -192,27 +192,28 @@
             this.ItemTodos,
             this.itemPrimaria,
             this.itemSecundaria,
-            this.navBarItem4,
-            this.navBarItem5,
-            this.navBarItem6,
-            this.navBarItem7,
-            this.navBarItem8,
-            this.navBarItem9,
-            this.navBarItem10,
-            this.navBarItem11,
-            this.navBarItem12,
-            this.navBarItem13,
-            this.navBarItem14});
+            this.itemPrimerGrado,
+            this.itemSegundoGrado,
+            this.itemTercerGrado,
+            this.itemCuartoGrado,
+            this.itemQuintoGrado,
+            this.itemSextoGrado,
+            this.itemSeptimoGrado,
+            this.itemOctavoGrado,
+            this.itemNovenoGrado,
+            this.itemDecimoGrado,
+            this.itemUndecimoGrado});
             this.navBarControl1.Location = new System.Drawing.Point(0, 56);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(4);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 250;
             this.navBarControl1.Size = new System.Drawing.Size(250, 498);
             this.navBarControl1.TabIndex = 1;
+            this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
             // 
             // navBarGroup1
             // 
-            this.navBarGroup1.Caption = "General";
+            this.navBarGroup1.Caption = "GENERAL";
             this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.ItemTodos),
@@ -223,101 +224,112 @@
             // 
             // ItemTodos
             // 
-            this.ItemTodos.Caption = "Todos";
+            this.ItemTodos.Caption = "TODOS";
             this.ItemTodos.Name = "ItemTodos";
             this.ItemTodos.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.ItemTodos_LinkClicked);
             // 
             // itemPrimaria
             // 
-            this.itemPrimaria.Caption = "Primaria";
+            this.itemPrimaria.Caption = "PRIMARIA";
             this.itemPrimaria.Name = "itemPrimaria";
             this.itemPrimaria.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemPrimaria_LinkClicked);
             // 
             // itemSecundaria
             // 
-            this.itemSecundaria.Caption = "Secundaria";
+            this.itemSecundaria.Caption = "SECUNDARIA";
             this.itemSecundaria.Name = "itemSecundaria";
             this.itemSecundaria.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemSecundaria_LinkClicked);
             // 
             // navBarGroup2
             // 
-            this.navBarGroup2.Caption = "Primaria";
+            this.navBarGroup2.Caption = "PRIMARIA";
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem8),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem9)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemPrimerGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemSegundoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemTercerGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemCuartoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemQuintoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemSextoGrado)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
-            // navBarItem4
+            // itemPrimerGrado
             // 
-            this.navBarItem4.Caption = "1er grado";
-            this.navBarItem4.Name = "navBarItem4";
+            this.itemPrimerGrado.Caption = "PRIMER GRADO";
+            this.itemPrimerGrado.Name = "itemPrimerGrado";
+            this.itemPrimerGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemPrimerGrado_LinkClicked);
             // 
-            // navBarItem5
+            // itemSegundoGrado
             // 
-            this.navBarItem5.Caption = "2do grado";
-            this.navBarItem5.Name = "navBarItem5";
+            this.itemSegundoGrado.Caption = "SEGUNDO GRADO";
+            this.itemSegundoGrado.Name = "itemSegundoGrado";
+            this.itemSegundoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemSegundoGrado_LinkClicked);
             // 
-            // navBarItem6
+            // itemTercerGrado
             // 
-            this.navBarItem6.Caption = "3er grado";
-            this.navBarItem6.Name = "navBarItem6";
+            this.itemTercerGrado.Caption = "TERCER GRADO";
+            this.itemTercerGrado.Name = "itemTercerGrado";
+            this.itemTercerGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemTercerGrado_LinkClicked);
             // 
-            // navBarItem7
+            // itemCuartoGrado
             // 
-            this.navBarItem7.Caption = "4to grado";
-            this.navBarItem7.Name = "navBarItem7";
+            this.itemCuartoGrado.Caption = "CUARTO GRADO";
+            this.itemCuartoGrado.Name = "itemCuartoGrado";
+            this.itemCuartoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemCuartoGrado_LinkClicked);
             // 
-            // navBarItem8
+            // itemQuintoGrado
             // 
-            this.navBarItem8.Caption = "5to grado";
-            this.navBarItem8.Name = "navBarItem8";
+            this.itemQuintoGrado.Caption = "QUINTO GRADO";
+            this.itemQuintoGrado.Name = "itemQuintoGrado";
+            this.itemQuintoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemQuintoGrado_LinkClicked);
             // 
-            // navBarItem9
+            // itemSextoGrado
             // 
-            this.navBarItem9.Caption = "6to grado";
-            this.navBarItem9.Name = "navBarItem9";
+            this.itemSextoGrado.Caption = "SEXTO GRADO";
+            this.itemSextoGrado.Name = "itemSextoGrado";
+            this.itemSextoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemSextoGrado_LinkClicked);
             // 
             // navBarGroup3
             // 
-            this.navBarGroup3.Caption = "Secundaria";
+            this.navBarGroup3.Caption = "SECUNDARIA";
             this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem10),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem11),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem12),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemSeptimoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemOctavoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemNovenoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemDecimoGrado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.itemUndecimoGrado)});
             this.navBarGroup3.Name = "navBarGroup3";
             // 
-            // navBarItem10
+            // itemSeptimoGrado
             // 
-            this.navBarItem10.Caption = "1er año";
-            this.navBarItem10.Name = "navBarItem10";
+            this.itemSeptimoGrado.Caption = "SEPTIMO GRADO";
+            this.itemSeptimoGrado.Name = "itemSeptimoGrado";
+            this.itemSeptimoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemSeptimoGrado_LinkClicked);
             // 
-            // navBarItem11
+            // itemOctavoGrado
             // 
-            this.navBarItem11.Caption = "2do año";
-            this.navBarItem11.Name = "navBarItem11";
+            this.itemOctavoGrado.Caption = "OCTAVO GRADO";
+            this.itemOctavoGrado.Name = "itemOctavoGrado";
+            this.itemOctavoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemOctavoGrado_LinkClicked);
             // 
-            // navBarItem12
+            // itemNovenoGrado
             // 
-            this.navBarItem12.Caption = "3er año";
-            this.navBarItem12.Name = "navBarItem12";
+            this.itemNovenoGrado.Caption = "NOVENO GRADO";
+            this.itemNovenoGrado.Name = "itemNovenoGrado";
+            this.itemNovenoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemNovenoGrado_LinkClicked);
             // 
-            // navBarItem13
+            // itemDecimoGrado
             // 
-            this.navBarItem13.Caption = "4to año";
-            this.navBarItem13.Name = "navBarItem13";
+            this.itemDecimoGrado.Caption = "DECIMO GRADO";
+            this.itemDecimoGrado.Name = "itemDecimoGrado";
+            this.itemDecimoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemDecimoGrado_LinkClicked);
             // 
-            // navBarItem14
+            // itemUndecimoGrado
             // 
-            this.navBarItem14.Caption = "5to año";
-            this.navBarItem14.Name = "navBarItem14";
+            this.itemUndecimoGrado.Caption = "UNDECIMO GRADO";
+            this.itemUndecimoGrado.Name = "itemUndecimoGrado";
+            this.itemUndecimoGrado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.itemUndecimoGrado_LinkClicked);
             // 
             // panelControl4
             // 
@@ -468,17 +480,17 @@
         private DevExpress.XtraEditors.LabelControl lblGradoEstudiante;
         private DevExpress.XtraEditors.LabelControl lblCorreoEstudiante;
         private DevExpress.XtraEditors.LabelControl lblNbEstudiante;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem5;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem6;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem7;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem8;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem9;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem10;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem11;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem12;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem13;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem14;
+        private DevExpress.XtraNavBar.NavBarItem itemPrimerGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemSegundoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemTercerGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemCuartoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemQuintoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemSextoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemSeptimoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemOctavoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemNovenoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemDecimoGrado;
+        private DevExpress.XtraNavBar.NavBarItem itemUndecimoGrado;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

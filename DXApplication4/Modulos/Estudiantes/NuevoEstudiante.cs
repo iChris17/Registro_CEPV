@@ -14,7 +14,9 @@ namespace DXApplication4.Modulos.Estudiantes
     public partial class NuevoEstudiante : Form
     {
         DataTable dtTutores = new DataTable();
-        
+        DataTable dtGradosPrimaria = new DataTable();
+        DataTable dtGradosSecundaria = new DataTable();
+
         public NuevoEstudiante()
         {
             InitializeComponent();
@@ -29,6 +31,30 @@ namespace DXApplication4.Modulos.Estudiantes
             dtTutores.Columns.Add("Parentesco");
             dtTutores.Columns.Add("Telefono");
             dtTutores.Columns.Add("Correo");
+            comboTutorParentesco.Properties.DataSource = ConexionBD.ExtraeDatos("select T.TIPO from TP_TUTOR T where T.ACTIVO=1");
+            rellenarDataGrados();
+        }
+
+        private void rellenarDataGrados()
+        {
+            string[] primaria = { "PRIMER GRADO","SEGUNDO GRADO","TERCER GRADO","CUARTO GRADO","QUINTO GRADO","SEXTO GRADO"};
+            string[] secundaria = { "SEPTIMO GRADO", "OCTAVO GRADO", "NOVENO GRADO", "DECIMO GRADO", "UNDECIMO GRADO" };
+            dtGradosPrimaria.Columns.Add("GRADO");
+            dtGradosSecundaria.Columns.Add("GRADO");
+
+            for (int i = 0; i < primaria.Length; i++)
+            {
+                DataRow row = dtGradosPrimaria.NewRow();
+                row["GRADO"] = primaria[i];
+                dtGradosPrimaria.Rows.Add(row);
+            }
+
+            for (int i = 0; i < secundaria.Length; i++)
+            {
+                DataRow row = dtGradosSecundaria.NewRow();
+                row["GRADO"] = secundaria[i];
+                dtGradosSecundaria.Rows.Add(row);
+            }
         }
 
         private void habilitarTraslado(bool estado=false) {
@@ -41,48 +67,97 @@ namespace DXApplication4.Modulos.Estudiantes
             comboTrasladoPeriodo.Enabled = estado;
         }
 
+        private void guardarEstudiante()
+        {
+            var pnombre = txtPrimerNombre.Text;
+            var snombre = txtSegundoNombre.Text;
+            var papellido = txtPrimerApellido.Text;
+            var sapellido = txtSegundoApellido.Text;
+            var codMined = txtCodMINED.Text;
+            var carnet = txtCarnet.Text;
+            var cedula = txtCedula.Text;
+            var fnacimiento = Convert.ToDateTime(dateFechaNacimiento.EditValue);
+            var departamento = comboDepartamento.EditValue;
+            var municipio = txtMunicipio.Text;
+            var barrio = "";
+            var direccion = txtDireccion.Text;
+            var partida = checkPartida.Checked;
+            var sexo = checkMasculino.Checked ? "M" : "F";
+            var telefono = txtTelefono.Text;
+            var nacionalidad = txtNacionalidad.Text;
+            var discapacidad = txtPadecimientos.Text;
+            var modalidad = txtPrograma.EditValue;
+            var grado = txtGrado.EditValue;
+            var turno = txtTurno.EditValue;
+            var email = txtCorreo.Text;
+            if (pnombre.Trim()==string.Empty)
+            {
+                MessageBox.Show("Error al guardar");
+                return;
+            }
+            var result = ConexionBD.EjecutarPro("sp_INSERTARESTUDIANTE", codMined, carnet, cedula, pnombre, snombre, papellido, sapellido, fnacimiento,
+                departamento, municipio, barrio, direccion, partida, sexo, telefono, nacionalidad, discapacidad, modalidad, grado, turno, email
+                );
+
+            for (int i = 0; i < dtTutores.Rows.Count; i++)
+            {
+                var nbtutor = dtTutores.Rows[i]["Nombre"].ToString();
+                var parentescotutor = dtTutores.Rows[i]["Parentesco"].ToString();
+                var telefonotutor = dtTutores.Rows[i]["Telefono"].ToString();
+                var correotutor = dtTutores.Rows[i]["Correo"].ToString();
+                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,correotutor, parentescotutor);
+            }
+
+            if (checkTraslado.Checked)
+            {
+                var trasladocodestable = txtTrasladoCodEstabl.Text;
+                var trascodcentro = txtTrasladoCodCentro.Text;
+                var trasnbcentro = txtTrasladoNombre.Text;
+                var trasprograma = txtTrasladoPrograma.Text;
+                var trasmodalidad = txtTrasladoModalidad.Text;
+                var trasgrado = txtTrasladoGrado.Text;
+                var trasperiodo = comboTrasladoPeriodo.Text;
+
+                var resulttraslado = ConexionBD.EjecutarPro("sp_INSERTARTRASLADO", carnet, trasladocodestable, trascodcentro, trasnbcentro, trasprograma, trasmodalidad, trasgrado, trasperiodo);
+            }
+
+            var programa = txtPrograma.EditValue;
+            var vlmatricula = Convert.ToDouble(txtMatricula.EditValue);
+            var vlmensualidad = Convert.ToDouble(txtMensualidad.EditValue);
+            var fhmatricula = DateTime.Now;
+
+            var resultmatricula = ConexionBD.EjecutarPro("sp_INSERTARMATRICULA",carnet,programa,modalidad,grado,turno,vlmatricula,vlmensualidad,fhmatricula);
+
+            if (checkBeca.Checked)
+            {
+                var porcentaje = Convert.ToDouble(txtMontoPor.EditValue);
+                var montocordobas = Convert.ToDouble(txtMonedaCor.EditValue);
+                var mensualidadtotal = Convert.ToDouble(txtMensualidadTotal.EditValue);
+
+                var resultbeca = ConexionBD.EjecutarPro("sp_INSERTARBECA",porcentaje,montocordobas,mensualidadtotal,DateTime.Now);
+            }
+
+            if (result&&resultmatricula)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar");
+            }
+        }
+
         private void officeNavigationBar1_ItemClick(object sender, DevExpress.XtraBars.Navigation.NavigationBarItemEventArgs e)
         {
             if (e.Item.Text=="Cerrar")
             {
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
-            } else if (e.Item.Text == "Guardar")
+            } else if (e.Item.Text == "Guardar (F10)")
             {
-                var pnombre = txtPrimerNombre.Text;
-                var snombre = txtSegundoNombre.Text;
-                var papellido = txtPrimerApellido.Text;
-                var sapellido = txtSegundoApellido.Text;
-                var codMined = txtCodMINED.Text;
-                var carnet = txtCarnet.Text;
-                var cedula = txtCedula.Text;
-                var fnacimiento = Convert.ToDateTime(dateFechaNacimiento.EditValue);
-                var departamento = comboDepartamento.EditValue;
-                var municipio = txtMunicipio.Text;
-                var barrio = "";
-                var direccion = txtDireccion.Text;
-                var partida = checkPartida.Checked;
-                var sexo = checkMasculino.Checked ? "M" : "F";
-                var telefono = txtTelefono.Text;
-                var nacionalidad = txtNacionalidad.Text;
-                var discapacidad = txtPadecimientos.Text;
-                var modalidad = txtPrograma.Text;
-                var grado = txtGrado.Text;
-                var turno = txtTurno.Text;
-                var email = txtCorreo.Text;
-                var result = ConexionBD.EjecutarPro("sp_INSERTARESTUDIANTE",codMined,carnet,cedula,pnombre,snombre,papellido,sapellido,fnacimiento,
-                    departamento,municipio,barrio,direccion,partida,sexo,telefono,nacionalidad,discapacidad,modalidad,grado,turno,email
-                    );
-                if (result)
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error al guardar");
-                }
-                
+
+                guardarEstudiante();
             }
         }
 
@@ -218,7 +293,14 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void txtTrasladoPrograma_EditValueChanged(object sender, EventArgs e)
         {
-            
+            if (txtTrasladoPrograma.EditValue.ToString() == "PRIMARIA")
+            {
+                txtTrasladoGrado.Properties.DataSource = dtGradosPrimaria;
+            }
+            else
+            {
+                txtTrasladoGrado.Properties.DataSource = dtGradosSecundaria;
+            }
         }
 
         private void btnTutorGuardar_Click(object sender, EventArgs e)
@@ -237,6 +319,26 @@ namespace DXApplication4.Modulos.Estudiantes
             comboTutorParentesco.Text="";
             txtTutorTelefono.Text = "";
             txtTutorCorreo.Text = "";
+        }
+
+        private void txtPrograma_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtPrograma.EditValue.ToString()=="PRIMARIA")
+            {
+                txtGrado.Properties.DataSource = dtGradosPrimaria;
+            }
+            else
+            {
+                txtGrado.Properties.DataSource = dtGradosSecundaria;
+            }
+        }
+
+        private void NuevoEstudiante_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10)
+            {
+                guardarEstudiante();
+            }
         }
     }
 }

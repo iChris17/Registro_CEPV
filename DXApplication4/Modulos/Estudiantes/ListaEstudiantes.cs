@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraReports.UI;
+using DXApplication4.Reports;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -137,6 +139,18 @@ namespace DXApplication4.Modulos.Estudiantes
         {
             gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO FROM ESTUDIANTE E where E.GRADO='UNDECIMO GRADO'");
 
+        }
+
+        private void btnVerMatricula_Click(object sender, EventArgs e)
+        {
+            /* HojaDeMatricula report = new HojaDeMatricula();
+             report.Parameters[0].Value = "SH-181096PV";
+             ReportPrintTool printTool = new ReportPrintTool(report);
+     // Invoke the Print dialog.
+     printTool.PrintDialog();*/
+
+            HojaMatricula frmPrint = new HojaMatricula("SH-181096PV");
+            frmPrint.Show();
         }
     }
 }

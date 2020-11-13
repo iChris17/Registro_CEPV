@@ -66,6 +66,7 @@
             this.lblNbEstudiante = new DevExpress.XtraEditors.LabelControl();
             this.gridListaEstudiante = new DevExpress.XtraGrid.GridControl();
             this.gridViewLista = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnVerMatricula = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -333,6 +334,7 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.btnVerMatricula);
             this.panelControl4.Controls.Add(this.pictureEdit1);
             this.panelControl4.Controls.Add(this.lblEstadoEstudiante);
             this.panelControl4.Controls.Add(this.lblGradoEstudiante);
@@ -416,6 +418,15 @@
             this.gridViewLista.OptionsView.ShowGroupPanel = false;
             this.gridViewLista.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewLista_FocusedRowChanged);
             // 
+            // btnVerMatricula
+            // 
+            this.btnVerMatricula.Location = new System.Drawing.Point(179, 116);
+            this.btnVerMatricula.Name = "btnVerMatricula";
+            this.btnVerMatricula.Size = new System.Drawing.Size(156, 36);
+            this.btnVerMatricula.TabIndex = 6;
+            this.btnVerMatricula.Text = "Ver hoja de matrícula";
+            this.btnVerMatricula.Click += new System.EventHandler(this.btnVerMatricula_Click);
+            // 
             // ListaEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -492,5 +503,6 @@
         private DevExpress.XtraNavBar.NavBarItem itemDecimoGrado;
         private DevExpress.XtraNavBar.NavBarItem itemUndecimoGrado;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnVerMatricula;
     }
 }

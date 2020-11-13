@@ -139,8 +139,10 @@ namespace DXApplication4.Modulos.Estudiantes
 
             if (result&&resultmatricula)
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                HojaMatricula print = new HojaMatricula(carnet);
+                print.Show();
+                //this.DialogResult = DialogResult.OK;
+                //this.Close();
             }
             else
             {

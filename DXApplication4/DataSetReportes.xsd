@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_HOJAMATRICULATableAdapter" GeneratorDataComponentClassName="sp_HOJAMATRICULATableAdapter" Name="sp_HOJAMATRICULA" UserDataComponentName="sp_HOJAMATRICULATableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="REGISTRO_CEPVConnectionString (Settings)" DbObjectName="REGISTRO_CEPV.dbo.sp_HOJAMATRICULA" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="REGISTRO_CEPVConnectionString (Settings)" DbObjectName="REGISTRO_CEPV.dbo.sp_HOJAMATRICULA" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.sp_HOJAMATRICULA</CommandText>
@@ -52,6 +52,10 @@
               <Mapping SourceColumn="TURNO1" DataSetColumn="TURNO1" />
               <Mapping SourceColumn="EMAIL" DataSetColumn="EMAIL" />
               <Mapping SourceColumn="FH_REGISTRO1" DataSetColumn="FH_REGISTRO1" />
+              <Mapping SourceColumn="TUTOR" DataSetColumn="TUTOR" />
+              <Mapping SourceColumn="TUTORTELEFONO" DataSetColumn="TUTORTELEFONO" />
+              <Mapping SourceColumn="TUTORCORREO" DataSetColumn="TUTORCORREO" />
+              <Mapping SourceColumn="TUTORTIPO" DataSetColumn="TUTORTIPO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -63,7 +67,7 @@
   <xs:element name="DataSetReportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetReportes" msprop:Generator_UserDSName="DataSetReportes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_HOJAMATRICULA" msprop:Generator_TableClassName="sp_HOJAMATRICULADataTable" msprop:Generator_TableVarName="tablesp_HOJAMATRICULA" msprop:Generator_TablePropName="sp_HOJAMATRICULA" msprop:Generator_RowDeletingName="sp_HOJAMATRICULARowDeleting" msprop:Generator_RowChangingName="sp_HOJAMATRICULARowChanging" msprop:Generator_RowEvHandlerName="sp_HOJAMATRICULARowChangeEventHandler" msprop:Generator_RowDeletedName="sp_HOJAMATRICULARowDeleted" msprop:Generator_UserTableName="sp_HOJAMATRICULA" msprop:Generator_RowChangedName="sp_HOJAMATRICULARowChanged" msprop:Generator_RowEvArgName="sp_HOJAMATRICULARowChangeEvent" msprop:Generator_RowClassName="sp_HOJAMATRICULARow">
+        <xs:element name="sp_HOJAMATRICULA" msprop:Generator_TableClassName="sp_HOJAMATRICULADataTable" msprop:Generator_TableVarName="tablesp_HOJAMATRICULA" msprop:Generator_RowChangedName="sp_HOJAMATRICULARowChanged" msprop:Generator_TablePropName="sp_HOJAMATRICULA" msprop:Generator_RowDeletingName="sp_HOJAMATRICULARowDeleting" msprop:Generator_RowChangingName="sp_HOJAMATRICULARowChanging" msprop:Generator_RowEvHandlerName="sp_HOJAMATRICULARowChangeEventHandler" msprop:Generator_RowDeletedName="sp_HOJAMATRICULARowDeleted" msprop:Generator_RowClassName="sp_HOJAMATRICULARow" msprop:Generator_UserTableName="sp_HOJAMATRICULA" msprop:Generator_RowEvArgName="sp_HOJAMATRICULARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCODIGO" msprop:Generator_ColumnPropNameInRow="CODIGO" msprop:Generator_ColumnPropNameInTable="CODIGOColumn" msprop:Generator_UserColumnName="CODIGO" type="xs:int" />
@@ -241,6 +245,34 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="FH_REGISTRO1" msprop:Generator_ColumnVarNameInTable="columnFH_REGISTRO1" msprop:Generator_ColumnPropNameInRow="FH_REGISTRO1" msprop:Generator_ColumnPropNameInTable="FH_REGISTRO1Column" msprop:Generator_UserColumnName="FH_REGISTRO1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TUTOR" msprop:Generator_ColumnVarNameInTable="columnTUTOR" msprop:Generator_ColumnPropNameInRow="TUTOR" msprop:Generator_ColumnPropNameInTable="TUTORColumn" msprop:Generator_UserColumnName="TUTOR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TUTORTELEFONO" msprop:Generator_ColumnVarNameInTable="columnTUTORTELEFONO" msprop:Generator_ColumnPropNameInRow="TUTORTELEFONO" msprop:Generator_ColumnPropNameInTable="TUTORTELEFONOColumn" msprop:Generator_UserColumnName="TUTORTELEFONO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TUTORCORREO" msprop:Generator_ColumnVarNameInTable="columnTUTORCORREO" msprop:Generator_ColumnPropNameInRow="TUTORCORREO" msprop:Generator_ColumnPropNameInTable="TUTORCORREOColumn" msprop:Generator_UserColumnName="TUTORCORREO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TUTORTIPO" msprop:Generator_ColumnVarNameInTable="columnTUTORTIPO" msprop:Generator_ColumnPropNameInRow="TUTORTIPO" msprop:Generator_ColumnPropNameInTable="TUTORTIPOColumn" msprop:Generator_UserColumnName="TUTORTIPO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

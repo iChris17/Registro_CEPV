@@ -59,6 +59,7 @@
             this.itemDecimoGrado = new DevExpress.XtraNavBar.NavBarItem();
             this.itemUndecimoGrado = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnVerMatricula = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.lblEstadoEstudiante = new DevExpress.XtraEditors.LabelControl();
             this.lblGradoEstudiante = new DevExpress.XtraEditors.LabelControl();
@@ -66,7 +67,6 @@
             this.lblNbEstudiante = new DevExpress.XtraEditors.LabelControl();
             this.gridListaEstudiante = new DevExpress.XtraGrid.GridControl();
             this.gridViewLista = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnVerMatricula = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -347,6 +347,15 @@
             this.panelControl4.Size = new System.Drawing.Size(681, 498);
             this.panelControl4.TabIndex = 2;
             // 
+            // btnVerMatricula
+            // 
+            this.btnVerMatricula.Location = new System.Drawing.Point(179, 116);
+            this.btnVerMatricula.Name = "btnVerMatricula";
+            this.btnVerMatricula.Size = new System.Drawing.Size(156, 36);
+            this.btnVerMatricula.TabIndex = 6;
+            this.btnVerMatricula.Text = "Ver hoja de matrícula";
+            this.btnVerMatricula.Click += new System.EventHandler(this.btnVerMatricula_Click);
+            // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
@@ -415,17 +424,10 @@
             this.gridViewLista.DetailHeight = 431;
             this.gridViewLista.GridControl = this.gridListaEstudiante;
             this.gridViewLista.Name = "gridViewLista";
+            this.gridViewLista.OptionsBehavior.Editable = false;
+            this.gridViewLista.OptionsFilter.AllowFilterEditor = false;
             this.gridViewLista.OptionsView.ShowGroupPanel = false;
             this.gridViewLista.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewLista_FocusedRowChanged);
-            // 
-            // btnVerMatricula
-            // 
-            this.btnVerMatricula.Location = new System.Drawing.Point(179, 116);
-            this.btnVerMatricula.Name = "btnVerMatricula";
-            this.btnVerMatricula.Size = new System.Drawing.Size(156, 36);
-            this.btnVerMatricula.TabIndex = 6;
-            this.btnVerMatricula.Text = "Ver hoja de matrícula";
-            this.btnVerMatricula.Click += new System.EventHandler(this.btnVerMatricula_Click);
             // 
             // ListaEstudiantes
             // 

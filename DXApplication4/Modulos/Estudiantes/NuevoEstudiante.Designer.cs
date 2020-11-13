@@ -52,6 +52,7 @@
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.txtTutorNombre = new DevExpress.XtraEditors.TextEdit();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.comboTutorParentesco = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtMensualidadTotal = new DevExpress.XtraEditors.TextEdit();
@@ -131,7 +132,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.comboTutorParentesco = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -144,6 +144,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMensualidadTotal.Properties)).BeginInit();
@@ -186,7 +187,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // officeNavigationBar1
@@ -274,7 +274,7 @@
             // 
             this.txtCodMINED.Location = new System.Drawing.Point(98, 27);
             this.txtCodMINED.Name = "txtCodMINED";
-            this.txtCodMINED.Properties.Mask.EditMask = "\\p{Lu}\\p{Lu}\\p{Lu}\\p{Lu}-\\d\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtCodMINED.Properties.Mask.EditMask = "\\p{Lu}\\p{Lu}\\p{Lu}\\p{Lu}-\\d\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d\\d\\d\\d";
             this.txtCodMINED.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtCodMINED.Size = new System.Drawing.Size(313, 22);
             this.txtCodMINED.TabIndex = 1;
@@ -448,6 +448,19 @@
             this.labelControl31.TabIndex = 55;
             this.labelControl31.Text = "Nombres y Apellidos del tutor";
             // 
+            // comboTutorParentesco
+            // 
+            this.comboTutorParentesco.Location = new System.Drawing.Point(86, 45);
+            this.comboTutorParentesco.Name = "comboTutorParentesco";
+            this.comboTutorParentesco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboTutorParentesco.Properties.DisplayMember = "TIPO";
+            this.comboTutorParentesco.Properties.NullText = "";
+            this.comboTutorParentesco.Properties.PopupSizeable = false;
+            this.comboTutorParentesco.Properties.ValueMember = "TIPO";
+            this.comboTutorParentesco.Size = new System.Drawing.Size(166, 22);
+            this.comboTutorParentesco.TabIndex = 37;
+            // 
             // labelControl27
             // 
             this.labelControl27.Location = new System.Drawing.Point(19, 524);
@@ -566,7 +579,7 @@
             this.checkBeca.Location = new System.Drawing.Point(261, 77);
             this.checkBeca.Name = "checkBeca";
             this.checkBeca.Properties.Caption = "Si";
-            this.checkBeca.Size = new System.Drawing.Size(47, 21);
+            this.checkBeca.Size = new System.Drawing.Size(47, 24);
             this.checkBeca.TabIndex = 32;
             this.checkBeca.CheckedChanged += new System.EventHandler(this.checkBeca_CheckedChanged);
             // 
@@ -605,6 +618,7 @@
             this.txtMensualidad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMensualidad.Size = new System.Drawing.Size(91, 22);
             this.txtMensualidad.TabIndex = 31;
+            this.txtMensualidad.EditValueChanged += new System.EventHandler(this.txtMensualidad_EditValueChanged);
             // 
             // labelControl33
             // 
@@ -865,7 +879,7 @@
             this.checkTraslado.Location = new System.Drawing.Point(158, 344);
             this.checkTraslado.Name = "checkTraslado";
             this.checkTraslado.Properties.Caption = "Si";
-            this.checkTraslado.Size = new System.Drawing.Size(94, 21);
+            this.checkTraslado.Size = new System.Drawing.Size(94, 24);
             this.checkTraslado.TabIndex = 18;
             this.checkTraslado.CheckedChanged += new System.EventHandler(this.checkTraslado_CheckedChanged);
             // 
@@ -907,7 +921,7 @@
             this.checkPartidaNo.Location = new System.Drawing.Point(591, 196);
             this.checkPartidaNo.Name = "checkPartidaNo";
             this.checkPartidaNo.Properties.Caption = "No";
-            this.checkPartidaNo.Size = new System.Drawing.Size(94, 21);
+            this.checkPartidaNo.Size = new System.Drawing.Size(94, 24);
             this.checkPartidaNo.TabIndex = 15;
             this.checkPartidaNo.CheckedChanged += new System.EventHandler(this.checkPartidaNo_CheckedChanged);
             // 
@@ -916,7 +930,7 @@
             this.checkPartida.Location = new System.Drawing.Point(553, 196);
             this.checkPartida.Name = "checkPartida";
             this.checkPartida.Properties.Caption = "Si";
-            this.checkPartida.Size = new System.Drawing.Size(94, 21);
+            this.checkPartida.Size = new System.Drawing.Size(94, 24);
             this.checkPartida.TabIndex = 14;
             this.checkPartida.CheckedChanged += new System.EventHandler(this.checkPartida_CheckedChanged);
             // 
@@ -1058,7 +1072,7 @@
             this.checkFemenino.Location = new System.Drawing.Point(144, 171);
             this.checkFemenino.Name = "checkFemenino";
             this.checkFemenino.Properties.Caption = "Femenino";
-            this.checkFemenino.Size = new System.Drawing.Size(94, 21);
+            this.checkFemenino.Size = new System.Drawing.Size(94, 24);
             this.checkFemenino.TabIndex = 8;
             this.checkFemenino.CheckedChanged += new System.EventHandler(this.checkFemenino_CheckedChanged);
             // 
@@ -1067,7 +1081,7 @@
             this.checkMasculino.Location = new System.Drawing.Point(58, 171);
             this.checkMasculino.Name = "checkMasculino";
             this.checkMasculino.Properties.Caption = "Masculino";
-            this.checkMasculino.Size = new System.Drawing.Size(94, 21);
+            this.checkMasculino.Size = new System.Drawing.Size(94, 24);
             this.checkMasculino.TabIndex = 7;
             this.checkMasculino.CheckedChanged += new System.EventHandler(this.checkMasculino_CheckedChanged);
             // 
@@ -1116,7 +1130,7 @@
             this.checkCedula.Location = new System.Drawing.Point(666, 21);
             this.checkCedula.Name = "checkCedula";
             this.checkCedula.Properties.Caption = "No posee";
-            this.checkCedula.Size = new System.Drawing.Size(94, 21);
+            this.checkCedula.Size = new System.Drawing.Size(94, 24);
             this.checkCedula.TabIndex = 56;
             this.checkCedula.CheckedChanged += new System.EventHandler(this.checkCedula_CheckedChanged);
             // 
@@ -1204,20 +1218,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Número de cédula";
             // 
-            // comboTutorParentesco
-            // 
-            this.comboTutorParentesco.Location = new System.Drawing.Point(86, 45);
-            this.comboTutorParentesco.Name = "comboTutorParentesco";
-            this.comboTutorParentesco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboTutorParentesco.Properties.DisplayMember = "TIPO";
-            this.comboTutorParentesco.Properties.NullText = "";
-            this.comboTutorParentesco.Properties.PopupSizeable = false;
-            this.comboTutorParentesco.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboTutorParentesco.Properties.ValueMember = "TIPO";
-            this.comboTutorParentesco.Size = new System.Drawing.Size(166, 22);
-            this.comboTutorParentesco.TabIndex = 37;
-            // 
             // NuevoEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1245,6 +1245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridTutores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTutores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTutorNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -1289,7 +1290,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerApellido.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSegundoNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrimerNombre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboTutorParentesco.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

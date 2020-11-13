@@ -341,6 +341,14 @@ namespace DXApplication4 {
             
             private global::System.Data.DataColumn columnFH_REGISTRO1;
             
+            private global::System.Data.DataColumn columnTUTOR;
+            
+            private global::System.Data.DataColumn columnTUTORTELEFONO;
+            
+            private global::System.Data.DataColumn columnTUTORCORREO;
+            
+            private global::System.Data.DataColumn columnTUTORTIPO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_HOJAMATRICULADataTable() {
@@ -624,6 +632,38 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TUTORColumn {
+                get {
+                    return this.columnTUTOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TUTORTELEFONOColumn {
+                get {
+                    return this.columnTUTORTELEFONO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TUTORCORREOColumn {
+                get {
+                    return this.columnTUTORCORREO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TUTORTIPOColumn {
+                get {
+                    return this.columnTUTORTIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -689,7 +729,11 @@ namespace DXApplication4 {
                         string GRADO1, 
                         string TURNO1, 
                         string EMAIL, 
-                        System.DateTime FH_REGISTRO1) {
+                        System.DateTime FH_REGISTRO1, 
+                        string TUTOR, 
+                        string TUTORTELEFONO, 
+                        string TUTORCORREO, 
+                        string TUTORTIPO) {
                 sp_HOJAMATRICULARow rowsp_HOJAMATRICULARow = ((sp_HOJAMATRICULARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -722,7 +766,11 @@ namespace DXApplication4 {
                         GRADO1,
                         TURNO1,
                         EMAIL,
-                        FH_REGISTRO1};
+                        FH_REGISTRO1,
+                        TUTOR,
+                        TUTORTELEFONO,
+                        TUTORCORREO,
+                        TUTORTIPO};
                 rowsp_HOJAMATRICULARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_HOJAMATRICULARow);
                 return rowsp_HOJAMATRICULARow;
@@ -784,6 +832,10 @@ namespace DXApplication4 {
                 this.columnTURNO1 = base.Columns["TURNO1"];
                 this.columnEMAIL = base.Columns["EMAIL"];
                 this.columnFH_REGISTRO1 = base.Columns["FH_REGISTRO1"];
+                this.columnTUTOR = base.Columns["TUTOR"];
+                this.columnTUTORTELEFONO = base.Columns["TUTORTELEFONO"];
+                this.columnTUTORCORREO = base.Columns["TUTORCORREO"];
+                this.columnTUTORTIPO = base.Columns["TUTORTIPO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +903,14 @@ namespace DXApplication4 {
                 base.Columns.Add(this.columnEMAIL);
                 this.columnFH_REGISTRO1 = new global::System.Data.DataColumn("FH_REGISTRO1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFH_REGISTRO1);
+                this.columnTUTOR = new global::System.Data.DataColumn("TUTOR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTUTOR);
+                this.columnTUTORTELEFONO = new global::System.Data.DataColumn("TUTORTELEFONO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTUTORTELEFONO);
+                this.columnTUTORCORREO = new global::System.Data.DataColumn("TUTORCORREO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTUTORCORREO);
+                this.columnTUTORTIPO = new global::System.Data.DataColumn("TUTORTIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTUTORTIPO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCODIGO,
                                 this.columnCOD_CARNE1}, true));
@@ -885,6 +945,10 @@ namespace DXApplication4 {
                 this.columnGRADO1.MaxLength = 30;
                 this.columnTURNO1.MaxLength = 30;
                 this.columnEMAIL.MaxLength = 50;
+                this.columnTUTOR.MaxLength = 80;
+                this.columnTUTORTELEFONO.MaxLength = 12;
+                this.columnTUTORCORREO.MaxLength = 50;
+                this.columnTUTORTIPO.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1513,6 +1577,70 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TUTOR {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_HOJAMATRICULA.TUTORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TUTOR\' de la tabla \'sp_HOJAMATRICULA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_HOJAMATRICULA.TUTORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TUTORTELEFONO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_HOJAMATRICULA.TUTORTELEFONOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TUTORTELEFONO\' de la tabla \'sp_HOJAMATRICULA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_HOJAMATRICULA.TUTORTELEFONOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TUTORCORREO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_HOJAMATRICULA.TUTORCORREOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TUTORCORREO\' de la tabla \'sp_HOJAMATRICULA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_HOJAMATRICULA.TUTORCORREOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TUTORTIPO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_HOJAMATRICULA.TUTORTIPOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TUTORTIPO\' de la tabla \'sp_HOJAMATRICULA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_HOJAMATRICULA.TUTORTIPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPROGRAMANull() {
                 return this.IsNull(this.tablesp_HOJAMATRICULA.PROGRAMAColumn);
             }
@@ -1846,6 +1974,54 @@ namespace DXApplication4 {
             public void SetFH_REGISTRO1Null() {
                 this[this.tablesp_HOJAMATRICULA.FH_REGISTRO1Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTUTORNull() {
+                return this.IsNull(this.tablesp_HOJAMATRICULA.TUTORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTUTORNull() {
+                this[this.tablesp_HOJAMATRICULA.TUTORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTUTORTELEFONONull() {
+                return this.IsNull(this.tablesp_HOJAMATRICULA.TUTORTELEFONOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTUTORTELEFONONull() {
+                this[this.tablesp_HOJAMATRICULA.TUTORTELEFONOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTUTORCORREONull() {
+                return this.IsNull(this.tablesp_HOJAMATRICULA.TUTORCORREOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTUTORCORREONull() {
+                this[this.tablesp_HOJAMATRICULA.TUTORCORREOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTUTORTIPONull() {
+                return this.IsNull(this.tablesp_HOJAMATRICULA.TUTORTIPOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTUTORTIPONull() {
+                this[this.tablesp_HOJAMATRICULA.TUTORTIPOColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2038,6 +2214,10 @@ namespace DXApplication4.DataSetReportesTableAdapters {
             tableMapping.ColumnMappings.Add("TURNO1", "TURNO1");
             tableMapping.ColumnMappings.Add("EMAIL", "EMAIL");
             tableMapping.ColumnMappings.Add("FH_REGISTRO1", "FH_REGISTRO1");
+            tableMapping.ColumnMappings.Add("TUTOR", "TUTOR");
+            tableMapping.ColumnMappings.Add("TUTORTELEFONO", "TUTORTELEFONO");
+            tableMapping.ColumnMappings.Add("TUTORCORREO", "TUTORCORREO");
+            tableMapping.ColumnMappings.Add("TUTORTIPO", "TUTORTIPO");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

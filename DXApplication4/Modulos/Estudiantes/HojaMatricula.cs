@@ -26,6 +26,9 @@ namespace DXApplication4.Modulos.Estudiantes
             report.CreateDocument();
         }
 
-
+        private void HojaMatricula_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

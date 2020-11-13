@@ -123,7 +123,7 @@ namespace DXApplication4.Modulos.Estudiantes
 
             var programa = txtPrograma.EditValue;
             var vlmatricula = Convert.ToDouble(txtMatricula.EditValue);
-            var vlmensualidad = Convert.ToDouble(txtMensualidad.EditValue);
+            var vlmensualidad = Convert.ToDouble(txtMensualidadTotal.EditValue);
             var fhmatricula = DateTime.Now;
 
             var resultmatricula = ConexionBD.EjecutarPro("sp_INSERTARMATRICULA",carnet,programa,modalidad,grado,turno,vlmatricula,vlmensualidad,fhmatricula);
@@ -140,9 +140,13 @@ namespace DXApplication4.Modulos.Estudiantes
             if (result&&resultmatricula)
             {
                 HojaMatricula print = new HojaMatricula(carnet);
-                print.Show();
-                //this.DialogResult = DialogResult.OK;
-                //this.Close();
+                var dialog=print.ShowDialog();
+                if (dialog==DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Dispose();
+                }
+                
             }
             else
             {
@@ -341,6 +345,11 @@ namespace DXApplication4.Modulos.Estudiantes
             {
                 guardarEstudiante();
             }
+        }
+
+        private void txtMensualidad_EditValueChanged(object sender, EventArgs e)
+        {
+            txtMensualidadTotal.Text = txtMensualidad.Text;
         }
     }
 }

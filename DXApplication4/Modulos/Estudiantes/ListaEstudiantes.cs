@@ -18,7 +18,11 @@ namespace DXApplication4.Modulos.Estudiantes
         {
             InitializeComponent();
             gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT (E.PRIMER_NOMBRE+' '+E.SEGUNDO_NOMBRE + ' '+E.PRIMER_APELLIDO+' '+E.SEGUNDO_APELLIDO) AS [Nombre Completo], E.COD_CARNE AS CARNET, E.FECHA_NACIMIENTO AS [Fecha de Nacimiento] ,E.EMAIL AS [Correo Institucional], e.TELEFONO, E.MODALIDAD,E.GRADO, E.FH_REGISTRO AS [FECHA DE MATRICULA] FROM ESTUDIANTE E order by E.FH_REGISTRO desc");
-            
+            if (gridViewLista.RowCount==0)
+            {
+                btnVerMatricula.Enabled = false;
+            }
+           
         }
 
         private void btnNuevoEstudiante_Click(object sender, EventArgs e)
@@ -45,6 +49,7 @@ namespace DXApplication4.Modulos.Estudiantes
                 lblCorreoEstudiante.Text = email;
                 lblGradoEstudiante.Text = grado;
                 lblEstadoEstudiante.Text = estado;
+                btnVerMatricula.Enabled = true;
             }
         }
 

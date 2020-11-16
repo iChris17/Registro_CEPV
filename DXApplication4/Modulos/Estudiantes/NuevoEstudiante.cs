@@ -80,12 +80,12 @@ namespace DXApplication4.Modulos.Estudiantes
             var departamento = comboDepartamento.EditValue;
             var municipio = txtMunicipio.Text;
             var barrio = "";
-            var direccion = txtDireccion.Text;
-            var partida = checkPartida.Checked;
+            var direccion = txtDireccion.Text.ToUpper();
+            var partida = true;
             var sexo = checkMasculino.Checked ? "M" : "F";
             var telefono = txtTelefono.Text;
-            var nacionalidad = txtNacionalidad.Text;
-            var discapacidad = txtPadecimientos.Text;
+            var nacionalidad = txtNacionalidad.Text.ToUpper();
+            var discapacidad = txtPadecimientos.Text.ToUpper();
             var modalidad = txtPrograma.EditValue;
             var grado = txtGrado.EditValue;
             var turno = txtTurno.EditValue;
@@ -101,7 +101,7 @@ namespace DXApplication4.Modulos.Estudiantes
 
             for (int i = 0; i < dtTutores.Rows.Count; i++)
             {
-                var nbtutor = dtTutores.Rows[i]["Nombre"].ToString();
+                var nbtutor = dtTutores.Rows[i]["Nombre"].ToString().ToUpper();
                 var parentescotutor = dtTutores.Rows[i]["Parentesco"].ToString();
                 var telefonotutor = dtTutores.Rows[i]["Telefono"].ToString();
                 var correotutor = dtTutores.Rows[i]["Correo"].ToString();
@@ -200,18 +200,12 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void checkPartida_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkPartida.Checked)
-            {
-                checkPartidaNo.Checked = false;
-            }
+         
         }
 
         private void checkPartidaNo_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkPartidaNo.Checked)
-            {
-                checkPartida.Checked = false;
-            }
+            
         }
 
         private void checkBeca_CheckedChanged(object sender, EventArgs e)
@@ -259,7 +253,7 @@ namespace DXApplication4.Modulos.Estudiantes
             string apellido = txtPrimerApellido.Text;
             string carnet = $"{nombre.Substring(0,1).ToUpper()}{apellido.Substring(0, 1).ToUpper()}-{dia}{mes}{year}PV";
             txtCarnet.Text = carnet;
-            txtCorreo.Text = $"{nombre.Substring(0, 1).ToLower()}{apellido.Substring(0, 1).ToLower()}{dia}{mes}{year}PV@planetaverde.edu.ni";
+            txtCorreo.Text = $"{nombre.Substring(0, 1).ToLower()}{apellido.Substring(0, 1).ToLower()}{dia}{mes}{year}pv@planetaverde.edu.ni";
         }
 
         private void panelControl1_Paint(object sender, PaintEventArgs e)
@@ -350,6 +344,11 @@ namespace DXApplication4.Modulos.Estudiantes
         private void txtMensualidad_EditValueChanged(object sender, EventArgs e)
         {
             txtMensualidadTotal.Text = txtMensualidad.Text;
+        }
+
+        private void txtTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

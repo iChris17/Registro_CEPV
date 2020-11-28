@@ -1,4 +1,4 @@
-﻿using DXApplication4.Reports.Estudiantes;
+﻿using DXApplication4.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,17 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DXApplication4.Modulos.Estudiantes
+namespace DXApplication4.Modulos.Matricula
 {
-    public partial class Matricula : Form
+    public partial class ListaMatriculas : Form
     {
-        public Matricula()
+        public ListaMatriculas()
         {
             InitializeComponent();
-            MatriculaPorPrograma report = new MatriculaPorPrograma();
-            
+            /*ListaDeMatricula report = new ListaDeMatricula();
             documentViewer1.DocumentSource = report;
-            report.CreateDocument();
+            report.CreateDocument();*/
         }
     }
 }

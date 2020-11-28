@@ -1,4 +1,5 @@
 ﻿using DXApplication4.Modulos.Estudiantes;
+using DXApplication4.Modulos.Matricula;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

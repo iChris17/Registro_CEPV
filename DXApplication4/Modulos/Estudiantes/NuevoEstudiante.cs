@@ -31,8 +31,10 @@ namespace DXApplication4.Modulos.Estudiantes
             dtTutores.Columns.Add("Parentesco");
             dtTutores.Columns.Add("Telefono");
             dtTutores.Columns.Add("Correo");
+            dtTutores.Columns.Add("Operador");
             comboTutorParentesco.Properties.DataSource = ConexionBD.ExtraeDatos("select T.TIPO from TP_TUTOR T where T.ACTIVO=1");
             rellenarDataGrados();
+
         }
 
         private void rellenarDataGrados()
@@ -104,8 +106,9 @@ namespace DXApplication4.Modulos.Estudiantes
                 var nbtutor = dtTutores.Rows[i]["Nombre"].ToString().ToUpper();
                 var parentescotutor = dtTutores.Rows[i]["Parentesco"].ToString();
                 var telefonotutor = dtTutores.Rows[i]["Telefono"].ToString();
+                var operadortutor = dtTutores.Rows[i]["Operador"].ToString();
                 var correotutor = dtTutores.Rows[i]["Correo"].ToString();
-                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,correotutor, parentescotutor);
+                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,operadortutor,correotutor, parentescotutor);
             }
 
             if (checkTraslado.Checked)
@@ -310,6 +313,7 @@ namespace DXApplication4.Modulos.Estudiantes
             row["Parentesco"] = comboTutorParentesco.EditValue;
             row["Telefono"] = txtTutorTelefono.Text;
             row["Correo"] = txtTutorCorreo.Text;
+            row["Operador"] = comboOperador.Text;
             dtTutores.Rows.Add(row);
 
             gridTutores.DataSource = null;
@@ -319,6 +323,7 @@ namespace DXApplication4.Modulos.Estudiantes
             comboTutorParentesco.Text="";
             txtTutorTelefono.Text = "";
             txtTutorCorreo.Text = "";
+            comboOperador.Text = "";
         }
 
         private void txtPrograma_EditValueChanged(object sender, EventArgs e)
@@ -347,6 +352,11 @@ namespace DXApplication4.Modulos.Estudiantes
         }
 
         private void txtTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
 
         }

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraReports.UI;
 using DXApplication4.Reports;
+using DXApplication4.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -157,6 +158,13 @@ namespace DXApplication4.Modulos.Estudiantes
             var b = gridViewLista.GetFocusedDataRow()["CARNET"];
             HojaMatricula frmPrint = new HojaMatricula(b.ToString());
             frmPrint.Show();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ConexionBD.ExtraeDatos("SELECT E.Modalidad AS MODALIDAD,E.GRADO,UPPER(E.TURNO) AS TURNO,CONVERT(DECIMAL(16,2),M.VL_MENSUALIDAD) AS MENSUALIDAD, M.FH_REGISTRO, E.PRIMER_NOMBRE AS NOMBRE, E.PRIMER_APELLIDO, E.TELEFONO, E.EMAIL, CONVERT(DECIMAL(16, 2), M.VL_MATRICULA) AS MATRICULA, E.COD_CARNE, CONVERT(DATE, M.FH_REGISTRO) AS FECHA_MATRICULA FROM ESTUDIANTE E INNER JOIN MATRICULA M ON E.COD_CARNE = M.COD_CARNE");
+
+            dt.ExportToExcel(null);
         }
     }
 }

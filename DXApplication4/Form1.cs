@@ -16,6 +16,14 @@ namespace DXApplication4
         public Form1()
         {
             InitializeComponent();
+            Login login = new Login();
+            var validateUser = login.ShowDialog();
+            this.Hide();
+
+            if (validateUser==DialogResult.OK)
+            {
+                this.Show();
+            }
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -168,7 +168,8 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(184, 57);
             this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Ver información";
+            this.simpleButton2.Text = "Exportar a xcel";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // btnNuevoEstudiante
             // 

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils.MVVM;
+using DXApplication4.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,7 +99,7 @@ namespace DXApplication4.Modulos.Estudiantes
                 return;
             }
             var result = ConexionBD.EjecutarPro("sp_INSERTARESTUDIANTE", codMined, carnet, cedula, pnombre, snombre, papellido, sapellido, fnacimiento,
-                departamento, municipio, barrio, direccion, partida, sexo, telefono, nacionalidad, discapacidad, modalidad, grado, turno, email
+                departamento, municipio, barrio, direccion, partida, sexo, telefono, nacionalidad, discapacidad, modalidad, grado, turno, email,Usuario.CodUser
                 );
 
             for (int i = 0; i < dtTutores.Rows.Count; i++)
@@ -108,7 +109,7 @@ namespace DXApplication4.Modulos.Estudiantes
                 var telefonotutor = dtTutores.Rows[i]["Telefono"].ToString();
                 var operadortutor = dtTutores.Rows[i]["Operador"].ToString();
                 var correotutor = dtTutores.Rows[i]["Correo"].ToString();
-                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,operadortutor,correotutor, parentescotutor);
+                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,operadortutor,correotutor, parentescotutor, Usuario.CodUser);
             }
 
             if (checkTraslado.Checked)
@@ -121,7 +122,7 @@ namespace DXApplication4.Modulos.Estudiantes
                 var trasgrado = txtTrasladoGrado.Text;
                 var trasperiodo = comboTrasladoPeriodo.Text;
 
-                var resulttraslado = ConexionBD.EjecutarPro("sp_INSERTARTRASLADO", carnet, trasladocodestable, trascodcentro, trasnbcentro, trasprograma, trasmodalidad, trasgrado, trasperiodo);
+                var resulttraslado = ConexionBD.EjecutarPro("sp_INSERTARTRASLADO", carnet, trasladocodestable, trascodcentro, trasnbcentro, trasprograma, trasmodalidad, trasgrado, trasperiodo, Usuario.CodUser);
             }
 
             var programa = txtPrograma.EditValue;
@@ -129,7 +130,7 @@ namespace DXApplication4.Modulos.Estudiantes
             var vlmensualidad = Convert.ToDouble(txtMensualidadTotal.EditValue);
             var fhmatricula = DateTime.Now;
 
-            var resultmatricula = ConexionBD.EjecutarPro("sp_INSERTARMATRICULA",carnet,programa,modalidad,grado,turno,vlmatricula,vlmensualidad,fhmatricula);
+            var resultmatricula = ConexionBD.EjecutarPro("sp_INSERTARMATRICULA",carnet,programa,modalidad,grado,turno,vlmatricula,vlmensualidad,fhmatricula, Usuario.CodUser);
 
             if (checkBeca.Checked)
             {
@@ -137,7 +138,7 @@ namespace DXApplication4.Modulos.Estudiantes
                 var montocordobas = Convert.ToDouble(txtMonedaCor.EditValue);
                 var mensualidadtotal = Convert.ToDouble(txtMensualidadTotal.EditValue);
 
-                var resultbeca = ConexionBD.EjecutarPro("sp_INSERTARBECA",porcentaje,montocordobas,mensualidadtotal,DateTime.Now);
+                var resultbeca = ConexionBD.EjecutarPro("sp_INSERTARBECA",porcentaje,montocordobas,mensualidadtotal,DateTime.Now, Usuario.CodUser);
             }
 
             if (result&&resultmatricula)

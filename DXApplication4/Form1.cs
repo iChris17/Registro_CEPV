@@ -1,5 +1,6 @@
 ﻿using DXApplication4.Modulos.Estudiantes;
 using DXApplication4.Modulos.Matricula;
+using DXApplication4.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,11 @@ namespace DXApplication4
             if (validateUser==DialogResult.OK)
             {
                 this.Show();
+            }
+            else
+            {
+                this.Show();
+                this.Dispose();
             }
         }
 
@@ -52,6 +58,24 @@ namespace DXApplication4
             var FrmBod = new Matricula();
             FrmBod.MdiParent = this;
             FrmBod.Show();
+        }
+
+        private void backstageViewTabItem2_SelectedChanged(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backstageViewTabItem1_SelectedChanged(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+
+        }
+
+        private void bvInfoUsuario_Load(object sender, EventArgs e)
+        {
+            txtBVInfo_Usuario.Text = Usuario.User;
+            txtBVInfo_Nombre.Text = Usuario.Nombre + " " + Usuario.Apellido;
+            txtBVInfo_Correo.Text = Usuario.Email;
+            txtBVInfo_Rol.Text = Usuario.Rol;
         }
     }
 }

@@ -386,6 +386,8 @@ namespace DXApplication4 {
             
             private global::System.Data.DataColumn columnTUTOROPERADOR;
             
+            private global::System.Data.DataColumn columnUSUARIO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_HOJAMATRICULADataTable() {
@@ -709,6 +711,14 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn USUARIOColumn {
+                get {
+                    return this.columnUSUARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -779,7 +789,8 @@ namespace DXApplication4 {
                         string TUTORTELEFONO, 
                         string TUTORCORREO, 
                         string TUTORTIPO, 
-                        string TUTOROPERADOR) {
+                        string TUTOROPERADOR, 
+                        string USUARIO) {
                 sp_HOJAMATRICULARow rowsp_HOJAMATRICULARow = ((sp_HOJAMATRICULARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -817,10 +828,18 @@ namespace DXApplication4 {
                         TUTORTELEFONO,
                         TUTORCORREO,
                         TUTORTIPO,
-                        TUTOROPERADOR};
+                        TUTOROPERADOR,
+                        USUARIO};
                 rowsp_HOJAMATRICULARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_HOJAMATRICULARow);
                 return rowsp_HOJAMATRICULARow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_HOJAMATRICULARow FindByCOD_CARNE(string COD_CARNE) {
+                return ((sp_HOJAMATRICULARow)(this.Rows.Find(new object[] {
+                            COD_CARNE})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -876,6 +895,7 @@ namespace DXApplication4 {
                 this.columnTUTORCORREO = base.Columns["TUTORCORREO"];
                 this.columnTUTORTIPO = base.Columns["TUTORTIPO"];
                 this.columnTUTOROPERADOR = base.Columns["TUTOROPERADOR"];
+                this.columnUSUARIO = base.Columns["USUARIO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -953,12 +973,17 @@ namespace DXApplication4 {
                 base.Columns.Add(this.columnTUTORTIPO);
                 this.columnTUTOROPERADOR = new global::System.Data.DataColumn("TUTOROPERADOR", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTUTOROPERADOR);
+                this.columnUSUARIO = new global::System.Data.DataColumn("USUARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSUARIO);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCOD_CARNE}, true));
                 this.columnCODIGO.AutoIncrement = true;
                 this.columnCODIGO.AutoIncrementSeed = -1;
                 this.columnCODIGO.AutoIncrementStep = -1;
                 this.columnCODIGO.AllowDBNull = false;
                 this.columnCODIGO.ReadOnly = true;
                 this.columnCOD_CARNE.AllowDBNull = false;
+                this.columnCOD_CARNE.Unique = true;
                 this.columnCOD_CARNE.MaxLength = 30;
                 this.columnPROGRAMA.MaxLength = 30;
                 this.columnMODALIDAD.MaxLength = 30;
@@ -989,6 +1014,8 @@ namespace DXApplication4 {
                 this.columnTUTORCORREO.MaxLength = 50;
                 this.columnTUTORTIPO.MaxLength = 30;
                 this.columnTUTOROPERADOR.MaxLength = 10;
+                this.columnUSUARIO.ReadOnly = true;
+                this.columnUSUARIO.MaxLength = 61;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1146,6 +1173,8 @@ namespace DXApplication4 {
             
             private global::System.Data.DataColumn columnFECHA_MATRICULA;
             
+            private global::System.Data.DataColumn columnUSUARIO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_LISTARMATRICULASDataTable() {
@@ -1277,6 +1306,14 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn USUARIOColumn {
+                get {
+                    return this.columnUSUARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1312,7 +1349,7 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_LISTARMATRICULASRow Addsp_LISTARMATRICULASRow(string Modalidad, string GRADO, string TURNO, decimal VL_MENSUALIDAD, System.DateTime FH_REGISTRO, string NOMBRE, string PRIMER_APELLIDO, string TELEFONO, string EMAIL, decimal VL_MATRICULA, string COD_CARNE, System.DateTime FECHA_MATRICULA) {
+            public sp_LISTARMATRICULASRow Addsp_LISTARMATRICULASRow(string Modalidad, string GRADO, string TURNO, decimal VL_MENSUALIDAD, System.DateTime FH_REGISTRO, string NOMBRE, string PRIMER_APELLIDO, string TELEFONO, string EMAIL, decimal VL_MATRICULA, string COD_CARNE, System.DateTime FECHA_MATRICULA, string USUARIO) {
                 sp_LISTARMATRICULASRow rowsp_LISTARMATRICULASRow = ((sp_LISTARMATRICULASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Modalidad,
@@ -1326,7 +1363,8 @@ namespace DXApplication4 {
                         EMAIL,
                         VL_MATRICULA,
                         COD_CARNE,
-                        FECHA_MATRICULA};
+                        FECHA_MATRICULA,
+                        USUARIO};
                 rowsp_LISTARMATRICULASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_LISTARMATRICULASRow);
                 return rowsp_LISTARMATRICULASRow;
@@ -1368,6 +1406,7 @@ namespace DXApplication4 {
                 this.columnVL_MATRICULA = base.Columns["VL_MATRICULA"];
                 this.columnCOD_CARNE = base.Columns["COD_CARNE"];
                 this.columnFECHA_MATRICULA = base.Columns["FECHA_MATRICULA"];
+                this.columnUSUARIO = base.Columns["USUARIO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1397,6 +1436,8 @@ namespace DXApplication4 {
                 base.Columns.Add(this.columnCOD_CARNE);
                 this.columnFECHA_MATRICULA = new global::System.Data.DataColumn("FECHA_MATRICULA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_MATRICULA);
+                this.columnUSUARIO = new global::System.Data.DataColumn("USUARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSUARIO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCOD_CARNE}, true));
                 this.columnModalidad.MaxLength = 30;
@@ -1413,6 +1454,8 @@ namespace DXApplication4 {
                 this.columnCOD_CARNE.Unique = true;
                 this.columnCOD_CARNE.MaxLength = 30;
                 this.columnFECHA_MATRICULA.ReadOnly = true;
+                this.columnUSUARIO.ReadOnly = true;
+                this.columnUSUARIO.MaxLength = 61;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2121,6 +2164,22 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string USUARIO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_HOJAMATRICULA.USUARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'USUARIO\' de la tabla \'sp_HOJAMATRICULA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_HOJAMATRICULA.USUARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPROGRAMANull() {
                 return this.IsNull(this.tablesp_HOJAMATRICULA.PROGRAMAColumn);
             }
@@ -2514,6 +2573,18 @@ namespace DXApplication4 {
             public void SetTUTOROPERADORNull() {
                 this[this.tablesp_HOJAMATRICULA.TUTOROPERADORColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUSUARIONull() {
+                return this.IsNull(this.tablesp_HOJAMATRICULA.USUARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUSUARIONull() {
+                this[this.tablesp_HOJAMATRICULA.USUARIOColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2724,6 +2795,22 @@ namespace DXApplication4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string USUARIO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_LISTARMATRICULAS.USUARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'USUARIO\' de la tabla \'sp_LISTARMATRICULAS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_LISTARMATRICULAS.USUARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsModalidadNull() {
                 return this.IsNull(this.tablesp_LISTARMATRICULAS.ModalidadColumn);
             }
@@ -2852,6 +2939,18 @@ namespace DXApplication4 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFECHA_MATRICULANull() {
                 this[this.tablesp_LISTARMATRICULAS.FECHA_MATRICULAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUSUARIONull() {
+                return this.IsNull(this.tablesp_LISTARMATRICULAS.USUARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUSUARIONull() {
+                this[this.tablesp_LISTARMATRICULAS.USUARIOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3084,6 +3183,7 @@ namespace DXApplication4.DataSetReportesTableAdapters {
             tableMapping.ColumnMappings.Add("TUTORCORREO", "TUTORCORREO");
             tableMapping.ColumnMappings.Add("TUTORTIPO", "TUTORTIPO");
             tableMapping.ColumnMappings.Add("TUTOROPERADOR", "TUTOROPERADOR");
+            tableMapping.ColumnMappings.Add("USUARIO", "USUARIO");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3263,6 +3363,7 @@ namespace DXApplication4.DataSetReportesTableAdapters {
             tableMapping.ColumnMappings.Add("VL_MATRICULA", "VL_MATRICULA");
             tableMapping.ColumnMappings.Add("COD_CARNE", "COD_CARNE");
             tableMapping.ColumnMappings.Add("FECHA_MATRICULA", "FECHA_MATRICULA");
+            tableMapping.ColumnMappings.Add("USUARIO", "USUARIO");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

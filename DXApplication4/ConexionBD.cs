@@ -31,7 +31,7 @@ namespace DXApplication4
         {
             try
             {
-                string strConnect = "Data Source=" + "./" + ";Initial Catalog=" + "REGISTRO_CEPV" + ";User ID=" + "sa" + ";Password=" + "sistemas123" + "";
+                string strConnect = "Data Source=" + "192.168.0.21" + ";Initial Catalog=" + "REGISTRO_CEPV" + ";User ID=" + "sa" + ";Password=" + "sistemas123" + "";
 
                 return new SqlConnection(strConnect);
             }

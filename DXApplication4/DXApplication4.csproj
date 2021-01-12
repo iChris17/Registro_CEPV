@@ -157,6 +157,12 @@
     <Compile Include="Modulos\Estudiantes\NuevoEstudiante.Designer.cs">
       <DependentUpon>NuevoEstudiante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Estudiantes\Tutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Estudiantes\Tutores.Designer.cs">
+      <DependentUpon>Tutores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Matricula\ListaMatriculas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Estudiantes\NuevoEstudiante.resx">
       <DependentUpon>NuevoEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Estudiantes\Tutores.resx">
+      <DependentUpon>Tutores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Matricula\ListaMatriculas.resx">
       <DependentUpon>ListaMatriculas.cs</DependentUpon>

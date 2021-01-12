@@ -14,7 +14,7 @@ namespace DXApplication4.Modulos.Estudiantes
 {
     public partial class NuevoEstudiante : Form
     {
-        DataTable dtTutores = new DataTable();
+        public DataTable dtTutores = new DataTable();
         DataTable dtGradosPrimaria = new DataTable();
         DataTable dtGradosSecundaria = new DataTable();
 
@@ -360,6 +360,26 @@ namespace DXApplication4.Modulos.Estudiantes
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
 
+        }
+
+        private void btnTutorExistente_Click(object sender, EventArgs e)
+        {
+            var frmTutor = new Tutores();
+            
+            var dialogTutor = frmTutor.ShowDialog();
+            if (dialogTutor==DialogResult.OK)
+            {
+                DataRow row = dtTutores.NewRow();
+                row["Nombre"] = frmTutor.nombre;
+                row["Parentesco"] = frmTutor.parentesco;
+                row["Telefono"] = frmTutor.telefono;
+                row["Correo"] = frmTutor.email;
+                row["Operador"] = frmTutor.operador;
+                dtTutores.Rows.Add(row);
+
+                gridTutores.DataSource = null;
+                gridTutores.DataSource = dtTutores;
+            }
         }
     }
 }

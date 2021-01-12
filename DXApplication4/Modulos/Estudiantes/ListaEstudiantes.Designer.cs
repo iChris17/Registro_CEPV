@@ -38,6 +38,8 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.lblTotalEstudiantes = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevoEstudiante = new DevExpress.XtraEditors.SimpleButton();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -151,6 +153,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.lblTotalEstudiantes);
+            this.panelControl3.Controls.Add(this.simpleButton1);
             this.panelControl3.Controls.Add(this.simpleButton2);
             this.panelControl3.Controls.Add(this.btnNuevoEstudiante);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -160,6 +164,30 @@
             this.panelControl3.Size = new System.Drawing.Size(1067, 56);
             this.panelControl3.TabIndex = 0;
             // 
+            // lblTotalEstudiantes
+            // 
+            this.lblTotalEstudiantes.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEstudiantes.Appearance.Options.UseFont = true;
+            this.lblTotalEstudiantes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTotalEstudiantes.Location = new System.Drawing.Point(1016, 2);
+            this.lblTotalEstudiantes.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.lblTotalEstudiantes.Name = "lblTotalEstudiantes";
+            this.lblTotalEstudiantes.Size = new System.Drawing.Size(49, 24);
+            this.lblTotalEstudiantes.TabIndex = 3;
+            this.lblTotalEstudiantes.Text = "label";
+            this.lblTotalEstudiantes.Click += new System.EventHandler(this.lblTotalEstudiantes_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(368, 0);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(184, 57);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Exportar tutores";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
@@ -168,7 +196,7 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(184, 57);
             this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Exportar a xcel";
+            this.simpleButton2.Text = "Exportar Estudiante";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // btnNuevoEstudiante
@@ -342,10 +370,10 @@
             this.panelControl4.Controls.Add(this.lblCorreoEstudiante);
             this.panelControl4.Controls.Add(this.lblNbEstudiante);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(386, 56);
+            this.panelControl4.Location = new System.Drawing.Point(552, 56);
             this.panelControl4.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(681, 498);
+            this.panelControl4.Size = new System.Drawing.Size(515, 498);
             this.panelControl4.TabIndex = 2;
             // 
             // btnVerMatricula
@@ -415,7 +443,7 @@
             this.gridListaEstudiante.MainView = this.gridViewLista;
             this.gridListaEstudiante.Margin = new System.Windows.Forms.Padding(4);
             this.gridListaEstudiante.Name = "gridListaEstudiante";
-            this.gridListaEstudiante.Size = new System.Drawing.Size(136, 498);
+            this.gridListaEstudiante.Size = new System.Drawing.Size(302, 498);
             this.gridListaEstudiante.TabIndex = 3;
             this.gridListaEstudiante.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLista});
@@ -457,6 +485,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
@@ -507,5 +536,7 @@
         private DevExpress.XtraNavBar.NavBarItem itemUndecimoGrado;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.SimpleButton btnVerMatricula;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl lblTotalEstudiantes;
     }
 }

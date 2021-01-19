@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.Utils.MVVM;
+using DXApplication4.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,10 @@ namespace DXApplication4.Modulos.Estudiantes
 {
     public partial class NuevoEstudiante : Form
     {
+        public DataTable dtTutores = new DataTable();
+        DataTable dtGradosPrimaria = new DataTable();
+        DataTable dtGradosSecundaria = new DataTable();
+
         public NuevoEstudiante()
         {
             InitializeComponent();
@@ -21,6 +27,37 @@ namespace DXApplication4.Modulos.Estudiantes
             txtMonedaCor.Enabled = false;
             txtCorreo.Enabled = false;
             txtCarnet.Enabled = false;
+            checkCedula.Checked = true;
+            dtTutores.Columns.Add("Nombre");
+            dtTutores.Columns.Add("Parentesco");
+            dtTutores.Columns.Add("Telefono");
+            dtTutores.Columns.Add("Correo");
+            dtTutores.Columns.Add("Operador");
+            comboTutorParentesco.Properties.DataSource = ConexionBD.ExtraeDatos("select T.TIPO from TP_TUTOR T where T.ACTIVO=1");
+            rellenarDataGrados();
+
+        }
+
+        private void rellenarDataGrados()
+        {
+            string[] primaria = { "PRIMER GRADO","SEGUNDO GRADO","TERCER GRADO","CUARTO GRADO","QUINTO GRADO","SEXTO GRADO"};
+            string[] secundaria = { "SEPTIMO GRADO", "OCTAVO GRADO", "NOVENO GRADO", "DECIMO GRADO", "UNDECIMO GRADO" };
+            dtGradosPrimaria.Columns.Add("GRADO");
+            dtGradosSecundaria.Columns.Add("GRADO");
+
+            for (int i = 0; i < primaria.Length; i++)
+            {
+                DataRow row = dtGradosPrimaria.NewRow();
+                row["GRADO"] = primaria[i];
+                dtGradosPrimaria.Rows.Add(row);
+            }
+
+            for (int i = 0; i < secundaria.Length; i++)
+            {
+                DataRow row = dtGradosSecundaria.NewRow();
+                row["GRADO"] = secundaria[i];
+                dtGradosSecundaria.Rows.Add(row);
+            }
         }
 
         private void habilitarTraslado(bool estado=false) {
@@ -33,48 +70,104 @@ namespace DXApplication4.Modulos.Estudiantes
             comboTrasladoPeriodo.Enabled = estado;
         }
 
+        private void guardarEstudiante()
+        {
+            var pnombre = txtPrimerNombre.Text;
+            var snombre = txtSegundoNombre.Text;
+            var papellido = txtPrimerApellido.Text;
+            var sapellido = txtSegundoApellido.Text;
+            var codMined = txtCodMINED.Text;
+            var carnet = txtCarnet.Text;
+            var cedula = txtCedula.Text;
+            var fnacimiento = Convert.ToDateTime(dateFechaNacimiento.EditValue);
+            var departamento = comboDepartamento.EditValue;
+            var municipio = txtMunicipio.Text;
+            var barrio = "";
+            var direccion = txtDireccion.Text.ToUpper();
+            var partida = true;
+            var sexo = checkMasculino.Checked ? "M" : "F";
+            var telefono = txtTelefono.Text;
+            var nacionalidad = txtNacionalidad.Text.ToUpper();
+            var discapacidad = txtPadecimientos.Text.ToUpper();
+            var modalidad = txtPrograma.EditValue;
+            var grado = txtGrado.EditValue;
+            var turno = txtTurno.EditValue;
+            var email = txtCorreo.Text;
+            if (pnombre.Trim()==string.Empty)
+            {
+                MessageBox.Show("Error al guardar");
+                return;
+            }
+            var result = ConexionBD.EjecutarPro("sp_INSERTARESTUDIANTE", codMined, carnet, cedula, pnombre, snombre, papellido, sapellido, fnacimiento,
+                departamento, municipio, barrio, direccion, partida, sexo, telefono, nacionalidad, discapacidad, modalidad, grado, turno, email,Usuario.CodUser
+                );
+
+            for (int i = 0; i < dtTutores.Rows.Count; i++)
+            {
+                var nbtutor = dtTutores.Rows[i]["Nombre"].ToString().ToUpper();
+                var parentescotutor = dtTutores.Rows[i]["Parentesco"].ToString();
+                var telefonotutor = dtTutores.Rows[i]["Telefono"].ToString();
+                var operadortutor = dtTutores.Rows[i]["Operador"].ToString();
+                var correotutor = dtTutores.Rows[i]["Correo"].ToString();
+                var resultTutores = ConexionBD.EjecutarPro("sp_AGREGARTUTOR",carnet,nbtutor,telefonotutor,operadortutor,correotutor, parentescotutor, Usuario.CodUser);
+            }
+
+            if (checkTraslado.Checked)
+            {
+                var trasladocodestable = txtTrasladoCodEstabl.Text;
+                var trascodcentro = txtTrasladoCodCentro.Text;
+                var trasnbcentro = txtTrasladoNombre.Text;
+                var trasprograma = txtTrasladoPrograma.Text;
+                var trasmodalidad = txtTrasladoModalidad.Text;
+                var trasgrado = txtTrasladoGrado.Text;
+                var trasperiodo = comboTrasladoPeriodo.Text;
+
+                var resulttraslado = ConexionBD.EjecutarPro("sp_INSERTARTRASLADO", carnet, trasladocodestable, trascodcentro, trasnbcentro, trasprograma, trasmodalidad, trasgrado, trasperiodo, Usuario.CodUser);
+            }
+
+            var programa = txtPrograma.EditValue;
+            var vlmatricula = Convert.ToDouble(txtMatricula.EditValue);
+            var vlmensualidad = Convert.ToDouble(txtMensualidadTotal.EditValue);
+            var fhmatricula = DateTime.Now;
+
+            var resultmatricula = ConexionBD.EjecutarPro("sp_INSERTARMATRICULA",carnet,programa,modalidad,grado,turno,vlmatricula,vlmensualidad,fhmatricula, Usuario.CodUser);
+
+            if (checkBeca.Checked)
+            {
+                var porcentaje = Convert.ToDouble(txtMontoPor.EditValue);
+                var montocordobas = Convert.ToDouble(txtMonedaCor.EditValue);
+                var mensualidadtotal = Convert.ToDouble(txtMensualidadTotal.EditValue);
+
+                var resultbeca = ConexionBD.EjecutarPro("sp_INSERTARBECA",porcentaje,montocordobas,mensualidadtotal,DateTime.Now, Usuario.CodUser);
+            }
+
+            if (result&&resultmatricula)
+            {
+                HojaMatricula print = new HojaMatricula(carnet);
+                var dialog=print.ShowDialog();
+                if (dialog==DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Dispose();
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar");
+            }
+        }
+
         private void officeNavigationBar1_ItemClick(object sender, DevExpress.XtraBars.Navigation.NavigationBarItemEventArgs e)
         {
             if (e.Item.Text=="Cerrar")
             {
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
-            } else if (e.Item.Text == "Guardar")
+            } else if (e.Item.Text == "Guardar (F10)")
             {
-                var pnombre = txtPrimerNombre.Text;
-                var snombre = txtSegundoNombre.Text;
-                var papellido = txtPrimerApellido.Text;
-                var sapellido = txtSegundoApellido.Text;
-                var codMined = txtCodMINED.Text;
-                var carnet = txtCarnet.Text;
-                var cedula = txtCedula.Text;
-                var fnacimiento = Convert.ToDateTime(dateFechaNacimiento.EditValue);
-                var departamento = comboDepartamento.EditValue;
-                var municipio = txtMunicipio.Text;
-                var barrio = "";
-                var direccion = txtDireccion.Text;
-                var partida = checkPartida.Checked;
-                var sexo = checkMasculino.Checked ? "M" : "F";
-                var telefono = txtTelefono.Text;
-                var nacionalidad = txtNacionalidad.Text;
-                var discapacidad = txtPadecimientos.Text;
-                var modalidad = txtPrograma.Text;
-                var grado = txtGrado.Text;
-                var turno = txtTurno.Text;
-                var email = txtCorreo.Text;
-                var result = ConexionBD.EjecutarPro("sp_INSERTARESTUDIANTE",codMined,carnet,cedula,pnombre,snombre,papellido,sapellido,fnacimiento,
-                    departamento,municipio,barrio,direccion,partida,sexo,telefono,nacionalidad,discapacidad,modalidad,grado,turno,email
-                    );
-                if (result)
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error al guardar");
-                }
-                
+
+                guardarEstudiante();
             }
         }
 
@@ -111,18 +204,12 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void checkPartida_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkPartida.Checked)
-            {
-                checkPartidaNo.Checked = false;
-            }
+         
         }
 
         private void checkPartidaNo_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkPartidaNo.Checked)
-            {
-                checkPartida.Checked = false;
-            }
+            
         }
 
         private void checkBeca_CheckedChanged(object sender, EventArgs e)
@@ -139,6 +226,12 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void dateFechaNacimiento_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtPrimerNombre.Text.Trim()==string.Empty||txtPrimerApellido.Text.Trim()==string.Empty)
+            {
+                MessageBox.Show("Debe rellenar el primer nombre o primer apellido del estudiante para continuar");
+                txtPrimerNombre.Focus();
+                return;
+            }
             DateTime fecha = Convert.ToDateTime(dateFechaNacimiento.EditValue);
             string mes = "";
             string year = "";
@@ -164,7 +257,7 @@ namespace DXApplication4.Modulos.Estudiantes
             string apellido = txtPrimerApellido.Text;
             string carnet = $"{nombre.Substring(0,1).ToUpper()}{apellido.Substring(0, 1).ToUpper()}-{dia}{mes}{year}PV";
             txtCarnet.Text = carnet;
-            txtCorreo.Text = $"{nombre.Substring(0, 1).ToLower()}{apellido.Substring(0, 1).ToLower()}{dia}{mes}{year}PV@planetaverde.edu.ni";
+            txtCorreo.Text = $"{nombre.Substring(0, 1).ToLower()}{apellido.Substring(0, 1).ToLower()}{dia}{mes}{year}pv@planetaverde.edu.ni";
         }
 
         private void panelControl1_Paint(object sender, PaintEventArgs e)
@@ -174,22 +267,119 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void txtMontoPor_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtMontoPor.Text.Trim()==string.Empty)
+            {
+                txtMontoPor.Text = "0";
+                return;
+            }
             double mensualidad = Convert.ToDouble(txtMensualidad.Text);
-            double porcentaje = Convert.ToDouble(txtMontoPor.Text);
-            double descuento = mensualidad * (porcentaje / 100);
+            double porcentaje = Convert.ToDouble(txtMontoPor.Text)/100;
+            double descuento = mensualidad * porcentaje;
             double valor = mensualidad - descuento;
-            txtMensualidad.Text = valor.ToString();
+            txtMensualidadTotal.Text = valor.ToString();
             txtMonedaCor.Text = descuento.ToString();
         }
 
         private void txtMonedaCor_EditValueChanged(object sender, EventArgs e)
         {
+            if (txtMonedaCor.Text.Trim() == string.Empty)
+            {
+                txtMonedaCor.Text = "0";
+                return;
+            }
             double mensualidad = Convert.ToDouble(txtMensualidad.Text);
             double descuento = Convert.ToDouble(txtMonedaCor.Text);
             double porcentaje = descuento/mensualidad;
             double valor = mensualidad - descuento;
-            txtMensualidad.Text = valor.ToString();
-            txtMontoPor.Text = porcentaje.ToString();
+            txtMensualidadTotal.Text = valor.ToString();
+            txtMontoPor.Text = (porcentaje*100).ToString();
+        }
+
+        private void txtTrasladoPrograma_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtTrasladoPrograma.EditValue.ToString() == "PRIMARIA")
+            {
+                txtTrasladoGrado.Properties.DataSource = dtGradosPrimaria;
+            }
+            else
+            {
+                txtTrasladoGrado.Properties.DataSource = dtGradosSecundaria;
+            }
+        }
+
+        private void btnTutorGuardar_Click(object sender, EventArgs e)
+        {
+            DataRow row=dtTutores.NewRow();
+            row["Nombre"] = txtTutorNombre.Text;
+            row["Parentesco"] = comboTutorParentesco.EditValue;
+            row["Telefono"] = txtTutorTelefono.Text;
+            row["Correo"] = txtTutorCorreo.Text;
+            row["Operador"] = comboOperador.Text;
+            dtTutores.Rows.Add(row);
+
+            gridTutores.DataSource = null;
+            gridTutores.DataSource = dtTutores;
+
+            txtTutorNombre.Text = "";
+            comboTutorParentesco.Text="";
+            txtTutorTelefono.Text = "";
+            txtTutorCorreo.Text = "";
+            comboOperador.Text = "";
+        }
+
+        private void txtPrograma_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtPrograma.EditValue.ToString()=="PRIMARIA")
+            {
+                txtGrado.Properties.DataSource = dtGradosPrimaria;
+            }
+            else
+            {
+                txtGrado.Properties.DataSource = dtGradosSecundaria;
+            }
+        }
+
+        private void NuevoEstudiante_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10)
+            {
+                guardarEstudiante();
+            }
+        }
+
+        private void txtMensualidad_EditValueChanged(object sender, EventArgs e)
+        {
+            txtMensualidadTotal.Text = txtMensualidad.Text;
+        }
+
+        private void txtTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void btnTutorExistente_Click(object sender, EventArgs e)
+        {
+            var frmTutor = new Tutores();
+            
+            var dialogTutor = frmTutor.ShowDialog();
+            if (dialogTutor==DialogResult.OK)
+            {
+                DataRow row = dtTutores.NewRow();
+                row["Nombre"] = frmTutor.nombre;
+                row["Parentesco"] = frmTutor.parentesco;
+                row["Telefono"] = frmTutor.telefono;
+                row["Correo"] = frmTutor.email;
+                row["Operador"] = frmTutor.operador;
+                dtTutores.Rows.Add(row);
+
+                gridTutores.DataSource = null;
+                gridTutores.DataSource = dtTutores;
+            }
         }
     }
 }

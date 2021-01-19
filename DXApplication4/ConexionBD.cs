@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DXApplication4
 {
@@ -30,7 +31,7 @@ namespace DXApplication4
         {
             try
             {
-                string strConnect = "Data Source=" + "./" + ";Initial Catalog=" + "REGISTRO_CEPV" + ";User ID=" + "sa" + ";Password=" + "sistemas123" + "";
+                string strConnect = "Data Source=" + "192.168.0.21" + ";Initial Catalog=" + "REGISTRO_CEPV" + ";User ID=" + "sa" + ";Password=" + "sistemas123" + "";
 
                 return new SqlConnection(strConnect);
             }
@@ -204,8 +205,7 @@ namespace DXApplication4
             catch (Exception ex)
             {
                 exito = false;
-
-                throw new Exception(ex.Message);
+                MessageBox.Show($"({Procedimiento}) {ex.Message}");
             }
 
             cn.Close();

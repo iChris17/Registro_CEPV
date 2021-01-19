@@ -196,7 +196,7 @@
             this.officeNavigationBar1.Location = new System.Drawing.Point(0, 867);
             this.officeNavigationBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.officeNavigationBar1.Name = "officeNavigationBar1";
-            this.officeNavigationBar1.Size = new System.Drawing.Size(890, 51);
+            this.officeNavigationBar1.Size = new System.Drawing.Size(891, 51);
             this.officeNavigationBar1.TabIndex = 0;
             this.officeNavigationBar1.ViewMode = DevExpress.XtraBars.Navigation.OfficeNavigationBarViewMode.Office;
             this.officeNavigationBar1.ItemClick += new DevExpress.XtraBars.Navigation.NavigationBarItemClickEventHandler(this.officeNavigationBar1_ItemClick);

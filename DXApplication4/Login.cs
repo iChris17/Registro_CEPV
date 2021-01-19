@@ -36,14 +36,19 @@ namespace DXApplication4
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
+            checkLogin();       
+        }
+
+        private void checkLogin()
+        {
             string usuario = txtUsuario.Text;
             string password = txtPassword.Text;
-            DataTable dt =  ConexionBD.ExtraeDatos($"select u.CODIGO,u.usuario as USUARIO,u.NOMBRE,u.APELLIDO,u.EMAIL,r.ROL as ROL, CONVERT(VARCHAR(MAX), DECRYPTBYPASSPHRASE('{password}', u.contrasenia)) as PASSWORD from usuarios u inner join roles r on r.codigo=u.cod_rol where u.usuario='{usuario}'");
-            if (dt.Rows.Count==0)
+            DataTable dt = ConexionBD.ExtraeDatos($"select u.CODIGO,u.usuario as USUARIO,u.NOMBRE,u.APELLIDO,u.EMAIL,r.ROL as ROL, CONVERT(VARCHAR(MAX), DECRYPTBYPASSPHRASE('{password}', u.contrasenia)) as PASSWORD from usuarios u inner join roles r on r.codigo=u.cod_rol where u.usuario='{usuario}'");
+            if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("No se encontro ningún usuario");
             }
-            else 
+            else
             {
                 string pass = dt.Rows[0]["PASSWORD"].ToString();
                 string user = dt.Rows[0]["USUARIO"].ToString();
@@ -52,7 +57,7 @@ namespace DXApplication4
                 string email = dt.Rows[0]["EMAIL"].ToString();
                 string rol = dt.Rows[0]["ROL"].ToString();
                 int cod = Convert.ToInt32(dt.Rows[0]["CODIGO"].ToString());
-                if (pass==password)
+                if (pass == password)
                 {
                     Usuario.User = user;
                     Usuario.Nombre = nombre;
@@ -67,7 +72,6 @@ namespace DXApplication4
                     MessageBox.Show("Contraseña incorrecta");
                 }
             }
-           
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,6 +85,14 @@ namespace DXApplication4
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                checkLogin();
+            }
         }
     }
 }

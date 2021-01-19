@@ -166,13 +166,13 @@
             // 
             // lblTotalEstudiantes
             // 
-            this.lblTotalEstudiantes.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEstudiantes.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalEstudiantes.Appearance.Options.UseFont = true;
             this.lblTotalEstudiantes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTotalEstudiantes.Location = new System.Drawing.Point(1016, 2);
+            this.lblTotalEstudiantes.Location = new System.Drawing.Point(1024, 2);
             this.lblTotalEstudiantes.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.lblTotalEstudiantes.Name = "lblTotalEstudiantes";
-            this.lblTotalEstudiantes.Size = new System.Drawing.Size(49, 24);
+            this.lblTotalEstudiantes.Size = new System.Drawing.Size(41, 21);
             this.lblTotalEstudiantes.TabIndex = 3;
             this.lblTotalEstudiantes.Text = "label";
             this.lblTotalEstudiantes.Click += new System.EventHandler(this.lblTotalEstudiantes_Click);

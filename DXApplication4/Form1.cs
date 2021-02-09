@@ -34,16 +34,25 @@ namespace DXApplication4
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ListaEstudiantes);
-            if (frm != null)
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaAbrir = Convert.ToInt32(dtPolitica.Rows[0]["ABRIR"].ToString());
+            if (PoliticaAbrir==1)
             {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
+                Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ListaEstudiantes);
+                if (frm != null)
+                {
+                    //si la instancia existe la pongo en primer plano
+                    frm.BringToFront();
+                    return;
+                }
+                var FrmBod = new ListaEstudiantes();
+                FrmBod.MdiParent = this;
+                FrmBod.Show();
+            } else
+            {
+                MessageBox.Show("No tiene permisos necesarios. Consulte al administrador del sistema.");
             }
-            var FrmBod = new ListaEstudiantes();
-            FrmBod.MdiParent = this;
-            FrmBod.Show();
+         
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -76,6 +85,20 @@ namespace DXApplication4
             txtBVInfo_Nombre.Text = Usuario.Nombre + " " + Usuario.Apellido;
             txtBVInfo_Correo.Text = Usuario.Email;
             txtBVInfo_Rol.Text = Usuario.Rol;
+        }
+
+        private void tabInfoGeneral_SelectedChanged(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            
+        }
+
+        private void bv_InfoGeneral_Load(object sender, EventArgs e)
+        {
+            DataTable dt = ConexionBD.ExtraeDatos("SELECT E.NOMBRE, E.RAZONSOCIAL, E.DIRECCION, P.ANIO FROM EMPRESA E INNER JOIN PERIODO P ON P.CODIGO=E.COD_PERIODO");
+            txtNbCentro.Text = dt.Rows[0]["NOMBRE"].ToString();
+            txtRazonSocial.Text = dt.Rows[0]["RAZONSOCIAL"].ToString();
+            txtDireccion.Text = dt.Rows[0]["DIRECCION"].ToString();
+            txtAnioLectivo.Text = dt.Rows[0]["ANIO"].ToString();
         }
     }
 }

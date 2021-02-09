@@ -42,7 +42,7 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevoEstudiante = new DevExpress.XtraEditors.SimpleButton();
-            this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarFiltros = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.ItemTodos = new DevExpress.XtraNavBar.NavBarItem();
             this.itemPrimaria = new DevExpress.XtraNavBar.NavBarItem();
@@ -79,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarFiltros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -169,12 +169,11 @@
             this.lblTotalEstudiantes.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalEstudiantes.Appearance.Options.UseFont = true;
             this.lblTotalEstudiantes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTotalEstudiantes.Location = new System.Drawing.Point(1024, 2);
+            this.lblTotalEstudiantes.Location = new System.Drawing.Point(1065, 2);
             this.lblTotalEstudiantes.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.lblTotalEstudiantes.Name = "lblTotalEstudiantes";
-            this.lblTotalEstudiantes.Size = new System.Drawing.Size(41, 21);
+            this.lblTotalEstudiantes.Size = new System.Drawing.Size(0, 21);
             this.lblTotalEstudiantes.TabIndex = 3;
-            this.lblTotalEstudiantes.Text = "label";
             this.lblTotalEstudiantes.Click += new System.EventHandler(this.lblTotalEstudiantes_Click);
             // 
             // simpleButton1
@@ -210,15 +209,15 @@
             this.btnNuevoEstudiante.Text = "Nuevo estudiante";
             this.btnNuevoEstudiante.Click += new System.EventHandler(this.btnNuevoEstudiante_Click);
             // 
-            // navBarControl1
+            // navBarFiltros
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
-            this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarFiltros.ActiveGroup = this.navBarGroup1;
+            this.navBarFiltros.Dock = System.Windows.Forms.DockStyle.Left;
+            this.navBarFiltros.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2,
             this.navBarGroup3});
-            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarFiltros.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.ItemTodos,
             this.itemPrimaria,
             this.itemSecundaria,
@@ -233,13 +232,13 @@
             this.itemNovenoGrado,
             this.itemDecimoGrado,
             this.itemUndecimoGrado});
-            this.navBarControl1.Location = new System.Drawing.Point(0, 56);
-            this.navBarControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 250;
-            this.navBarControl1.Size = new System.Drawing.Size(250, 498);
-            this.navBarControl1.TabIndex = 1;
-            this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
+            this.navBarFiltros.Location = new System.Drawing.Point(0, 56);
+            this.navBarFiltros.Margin = new System.Windows.Forms.Padding(4);
+            this.navBarFiltros.Name = "navBarFiltros";
+            this.navBarFiltros.OptionsNavPane.ExpandedWidth = 250;
+            this.navBarFiltros.Size = new System.Drawing.Size(250, 498);
+            this.navBarFiltros.TabIndex = 1;
+            this.navBarFiltros.Click += new System.EventHandler(this.navBarControl1_Click);
             // 
             // navBarGroup1
             // 
@@ -465,7 +464,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.gridListaEstudiante);
             this.Controls.Add(this.panelControl4);
-            this.Controls.Add(this.navBarControl1);
+            this.Controls.Add(this.navBarFiltros);
             this.Controls.Add(this.panelControl3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -486,7 +485,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarFiltros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
@@ -508,7 +507,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton btnNuevoEstudiante;
-        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
+        private DevExpress.XtraNavBar.NavBarControl navBarFiltros;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraGrid.GridControl gridListaEstudiante;

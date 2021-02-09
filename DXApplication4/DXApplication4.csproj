@@ -218,6 +218,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\MatriculaPorPrograma.resx">
       <DependentUpon>MatriculaPorPrograma.cs</DependentUpon>
@@ -262,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo1.ico" />
+    <None Include="Resources\Logo.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataSets\" />

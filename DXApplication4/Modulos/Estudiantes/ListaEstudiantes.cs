@@ -18,25 +18,55 @@ namespace DXApplication4.Modulos.Estudiantes
         public ListaEstudiantes()
         {
             InitializeComponent();
-            gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT E.* FROM VW_LISTAESTUDIANTES_PRINCIPAL E order by [FECHA DE MATRICULA] desc");
-            if (gridViewLista.RowCount==0)
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaVisualizar = Convert.ToInt32(dtPolitica.Rows[0]["VISUALIZAR"].ToString());
+            if (PoliticaVisualizar==1)
+            {
+                gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT E.* FROM VW_LISTAESTUDIANTES_PRINCIPAL E order by [FECHA DE MATRICULA] desc");
+                if (gridViewLista.RowCount == 0)
+                {
+                    btnVerMatricula.Enabled = false;
+                }
+                else
+                {
+                    btnVerMatricula.Enabled = true;
+                }
+                string total = ConexionBD.ExtraeDatos("select count(*) as total from estudiante").Rows[0]["total"].ToString();
+                lblTotalEstudiantes.Text = "Número de estudiantes matriculados: " + total;
+            }
+            else
             {
                 btnVerMatricula.Enabled = false;
+                gridListaEstudiante.DataSource = null;
+                lblTotalEstudiantes.Text = "Número de estudiantes matriculados: " + 0;
+                navBarFiltros.Enabled = false;
+
+                lblNbEstudiante.Text = string.Empty;
+                lblCorreoEstudiante.Text = string.Empty;
+                lblGradoEstudiante.Text = string.Empty;
+                lblEstadoEstudiante.Text = string.Empty;
             }
-            string total = ConexionBD.ExtraeDatos("select count(*) as total from estudiante").Rows[0]["total"].ToString();
-            lblTotalEstudiantes.Text = "Número de estudiantes matriculados: " + total;
-           
+                    
         }
 
         private void btnNuevoEstudiante_Click(object sender, EventArgs e)
         {
-            var frmNuev = new NuevoEstudiante();
-            var result=frmNuev.ShowDialog();
-            if (result==DialogResult.OK)
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaCrear = Convert.ToInt32(dtPolitica.Rows[0]["CREAR"].ToString());
+            if (PoliticaCrear==1)
             {
-                gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT E.* FROM VW_LISTAESTUDIANTES_PRINCIPAL E order by [FECHA DE MATRICULA] desc");
-                lblTotalEstudiantes.Text = "Número de estudiantes matriculados: " + ConexionBD.ExtraeDatos("SELECT COUNT(*) as TOTAL FROM ESTUDIANTE E ").Rows[0]["TOTAL"].ToString();
+                var frmNuev = new NuevoEstudiante();
+                var result = frmNuev.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    gridListaEstudiante.DataSource = ConexionBD.ExtraeDatos("SELECT E.* FROM VW_LISTAESTUDIANTES_PRINCIPAL E order by [FECHA DE MATRICULA] desc");
+                    lblTotalEstudiantes.Text = "Número de estudiantes matriculados: " + ConexionBD.ExtraeDatos("SELECT COUNT(*) as TOTAL FROM ESTUDIANTE E ").Rows[0]["TOTAL"].ToString();
+                }
+            } else
+            {
+                MessageBox.Show("No tiene permisos necesarios. Consulte al administrador del sistema.");
             }
+         
 
         }
 
@@ -152,27 +182,49 @@ namespace DXApplication4.Modulos.Estudiantes
 
         private void btnVerMatricula_Click(object sender, EventArgs e)
         {
-            /* HojaDeMatricula report = new HojaDeMatricula();
-             report.Parameters[0].Value = "SH-181096PV";
-             ReportPrintTool printTool = new ReportPrintTool(report);
-     // Invoke the Print dialog.
-     printTool.PrintDialog();*/
-            int carne = gridViewLista.GetSelectedRows()[0];
-            var b = gridViewLista.GetFocusedDataRow()["CARNET"];
-            HojaMatricula frmPrint = new HojaMatricula(b.ToString());
-            frmPrint.Show();
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaReporte = Convert.ToInt32(dtPolitica.Rows[0]["REPORTE"].ToString());
+            if (PoliticaReporte == 1)
+            {
+                int carne = gridViewLista.GetSelectedRows()[0];
+                var b = gridViewLista.GetFocusedDataRow()["CARNET"];
+                HojaMatricula frmPrint = new HojaMatricula(b.ToString());
+                frmPrint.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos necesarios. Consulte al administrador del sistema.");
+            }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            DataTable dt = ConexionBD.ExtraeDatos("SELECT * FROM VW_EXPORTAR_ESTUDIANTES_EXCEL");
-            dt.ExportToExcel(null);
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaExportar = Convert.ToInt32(dtPolitica.Rows[0]["EXPORTAR"].ToString());
+            if (PoliticaExportar == 1)
+            {
+                DataTable dt = ConexionBD.ExtraeDatos("SELECT * FROM VW_EXPORTAR_ESTUDIANTES_EXCEL");
+                dt.ExportToExcel(null);
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos necesarios. Consulte al administrador del sistema.");
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            DataTable dt = ConexionBD.ExtraeDatos("SELECT * FROM VW_TUTORES_EXPORTAR_EXCEL");
-            dt.ExportToExcel(null);
+            DataTable dtPolitica = ConexionBD.Leer("sp_VerificarPermiso", "ESTUDIANTES", Usuario.CodUser);
+            int PoliticaExportar = Convert.ToInt32(dtPolitica.Rows[0]["EXPORTAR"].ToString());
+            if (PoliticaExportar == 1)
+            {
+                DataTable dt = ConexionBD.ExtraeDatos("SELECT * FROM VW_TUTORES_EXPORTAR_EXCEL");
+                dt.ExportToExcel(null);
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos necesarios. Consulte al administrador del sistema.");
+            }
         }
 
         private void lblTotalEstudiantes_Click(object sender, EventArgs e)
